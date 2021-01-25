@@ -1,12 +1,12 @@
 # INTRODUCCIÓN
 
-### Definición
+## A) DEFINICIÓN
 
-Los hilos, o *Threads*, son la unidad básica de utilización de la CPU, y más concretamente de un core del procesador. Así un thread se puede definir como la secuencia de código que está en ejecución, pero dentro del contexto de un proceso.
+Los hilos, o *Threads*, son la unidad básica de utilización de la CPU, y más concretamente de un core del procesador. Así un thread se puede definir como la secuencia de código que está en ejecución, pero embebida en el contexto de trabajo de un proceso.
 
 La diferencia entre un hilo y un proceso es que los procesos son independientes, tienen su espacio de direcciones de memoria separado y compiten en igualdad de condiciones entre ellos por el uso de la CPU, tanto si comparten padre como si son independientes.
 
-Sin embargo, en un hilo (o proceso ligero) lo que hace el proceso es crear un espacio de direcciones dentro de su espacio de direcciones, por lo que la pugna por competir por el tiempo de procesador se verá en “inferioridad de condiciones” respecto a un proceso padre–hijo.
+Sin embargo, en un hilo, lo que hace el proceso es crear un espacio privado de direcciones dentro de su espacio de direcciones, por lo que la pugna por competir por el tiempo de procesador se verá en “inferioridad de condiciones” respecto a un proceso padre–hijo.
 
 Algunas características de los hilos son:
 
@@ -36,21 +36,19 @@ Se aconseja utilizar hilos en una aplicación cuando:
 para manejar tareas de tiempo crítico y una prioridad baja para otras tareas.
 - La aplicación se va a ejecutar en un entorno multiprocesador.
 
-![IMAGENES/img_01.png](IMAGENES/img_01.png)
-
-Estructura de hilos y procesos
+![IMAGEN 1: ESTRUCTURA DE HILOS Y PROCESOS](IMAGENES/img_01.png)
 
 Hablamos de multihilo cuando se ejecutan varias tareas paralelamente dentro de una misma aplicación. En este caso no son procesos diferentes sino que dichas tareas se ejecutan dentro del mismo proceso del Sistema Operativo. A cada una de estas tareas se le conoce como hilo o thread (en algunos contextos también como procesos ligeros).
 
 El uso de varios hilos dentro de una aplicación se conoce como **Programación Concurrente**.
 
-## Estados de un hilo
+## B) ESTADOS DE UN HILO
 
 Una vez que hemos visto una pequeña introducción a los hilos, podemos entrar a ver cómo funcionan a nivel organizativo:
 
-A) Inicialmente, se crea la clase que implementa el hilo (Thread).
+A) Inicialmente, se crea la instancia de la clase que implementa el hilo (Thread).
 
-B) Al invocar al método **run** el hilo pasa a estado *ejecutable* (*Runnable*) a la espera de que el sistema operativo le conceda tiempo de CPU.
+B) Al invocar al método **start()** el hilo pasa a estado *ejecutable* (*Runnable*) a la espera de que el gestor de JVM le conceda acceso y permisos para su ejecución.
 
 C) Cuando eso sucede, el hilo pasa a estado *ejecutándose*.
 
@@ -60,4 +58,10 @@ E) El hilo termina cuando acaba de ejecutarse el código del mismo o bien se inv
 
 Gráficamente el resultado es el siguiente:
 
-![INTRODUCCIO%CC%81N%20ab8161559b524be28f4d0385f59e5a16/Untitled%201.png](INTRODUCCIO%CC%81N%20ab8161559b524be28f4d0385f59e5a16/Untitled%201.png)
+![IMAGEN 2: Estads de un proceso](IMAGENES/img_02.png)
+
+## C) REFERENCIAS Y RECURSOS USADOS
+* Imagen 1:
+    * [Libro "Programación de Servicios y Procesos" Ed. ra-ma](https://www.ra-ma.es/libro/programacion-de-servicios-y-procesos-grado-superior_49240/)
+* Imagen 2:
+    * [https://www.educative.io/edpresso/how-to-use-threads-in-java](https://www.educative.io/edpresso/how-to-use-threads-in-java)
