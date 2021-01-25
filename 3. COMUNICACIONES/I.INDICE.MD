@@ -1,8 +1,6 @@
 * [Introducción](II.INTRODUCCION.MD)
 * [Sockets](III.SOCKETS.MD)
-* Cliente - Servidor
-* Tipos de Sockets
-* Conexiones Básicas
+* [Conexiones Básicas](V.CONEXIONES_BASICAS.md)
 * Sockets TCP
 * Sockets UDP
 * Conexiones a Múltiples Clientes
