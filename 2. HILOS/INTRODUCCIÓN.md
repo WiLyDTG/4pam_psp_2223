@@ -1,7 +1,8 @@
 # INTRODUCCIÓN
 
-## A) DEFINICIÓN
+## A) DEFINICIÓN 
 
+:smiley:
 Los hilos, o *Threads*, son la unidad básica de utilización de la CPU, y más concretamente de un core del procesador. Así un thread se puede definir como la secuencia de código que está en ejecución, pero embebida en el contexto de trabajo de un proceso.
 
 La diferencia entre un hilo y un proceso es que los procesos son independientes, tienen su espacio de direcciones de memoria separado y compiten en igualdad de condiciones entre ellos por el uso de la CPU, tanto si comparten padre como si son independientes.
