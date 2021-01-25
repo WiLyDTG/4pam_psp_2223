@@ -2,7 +2,6 @@
 
 ## A) DEFINICIÓN 
 
-:smiley:
 Los hilos, o *Threads*, son la unidad básica de utilización de la CPU, y más concretamente de un core del procesador. Así un thread se puede definir como la secuencia de código que está en ejecución, pero embebida en el contexto de trabajo de un proceso.
 
 La diferencia entre un hilo y un proceso es que los procesos son independientes, tienen su espacio de direcciones de memoria separado y compiten en igualdad de condiciones entre ellos por el uso de la CPU, tanto si comparten padre como si son independientes.
@@ -13,29 +12,29 @@ Algunas características de los hilos son:
 
 - Un hilo no puede existir independientemente de un proceso.
 - Un hilo no puede ejecutarse por si solo.
-- Dentro de cada proceso puede haber varios hilos ejecutándose.
-- Un único hilo es similar a un programa secuencial; por si mismo no nos ofrece nada nuevo. Es la habilidad de ejecutar varios hilos dentro de un proceso lo que ofrece algo nuevo y útil,
+- Dentro de cada proceso puede haber varios hilos ejecutándose.
+- Un único hilo es similar a un programa secuencial; por si mismo no nos ofrece nada nuevo. Es la habilidad de ejecutar varios hilos dentro de un proceso lo que ofrece algo nuevo y útil,
 ya que cada uno de estos hilos puede ejecutar actividades diferentes al mismo tiempo.
 
 Como consecuencia de compartir el espacio de memoria, los hilos aportan las siguientes
 ventajas sobre los procesos:
 
-- Se consumen menos recursos en el lanzamiento y la ejecución de un hilo que en el
-lanzamiento y ejecución de un proceso.
+- Se consumen menos recursos en el lanzamiento y la ejecución de un hilo que en el
+lanzamiento y ejecución de un proceso.
 - Se tarda menos tiempo en crear y terminar un hilo que un proceso.
-- La conmutación entre hilos del mismo proceso es bastante más rápida que entre
+- La conmutación entre hilos del mismo proceso es bastante más rápida que entre
 
     procesos.
 
-Es por esas razones, por lo que a los hilos se les denomina también procesos ligeros.
+Es por esas razones, por lo que a los hilos se les denomina también procesos ligeros.
 
-Se aconseja utilizar hilos en una aplicación cuando:
+Se aconseja utilizar hilos en una aplicación cuando:
 
-- La aplicación maneja entradas de varios dispositivos de comunicación.
-- La aplicación debe poder realizar diferentes tareas a la vez.
+- La aplicación maneja entradas de varios dispositivos de comunicación.
+- La aplicación debe poder realizar diferentes tareas a la vez.
 - Interesa diferenciar tareas con una prioridad variada. Por ejemplo, una prioridad alta
-para manejar tareas de tiempo crítico y una prioridad baja para otras tareas.
-- La aplicación se va a ejecutar en un entorno multiprocesador.
+para manejar tareas de tiempo crítico y una prioridad baja para otras tareas.
+- La aplicación se va a ejecutar en un entorno multiprocesador.
 
 ![IMAGEN 1: ESTRUCTURA DE HILOS Y PROCESOS](IMAGENES/img_01.png)
 
