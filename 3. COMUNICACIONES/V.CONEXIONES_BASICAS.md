@@ -1,79 +1,3 @@
-Paquete java.net
-Incluye las clases para desarrollar aplicaciones de red
-Sockets TPC
-Clase ServerSocket : Implementa el socket en el lado del servidor
-Escucha peticiones de conexión de clientes en un puerto
-Clase Socket: Implementa el socket en el lado del cliente.
-mantiene la comunicación entre cliente y servidor
-
-![PROCESO DE COMUNICACIÓN CON SOCKETS EN JAVA](IMAGENES/IMG_03_05.png)
-
-Sockets TPC → Servidor:
-Creación del objeto ServerSocket.
-Se puede especificar el puerto en el constructor
-Asignación de dirección y puerto (.bind).
-Escucha en el puerto
-Aceptación de conexiones (.accept). 
-Esta operación implica la creación de un nuevo socket, que se usa para comunicarse con el cliente que se ha conectado.
-Obtener del socket establecido Input y Output Streams para poder comunicarse con el cliente (.getInputStream .getOutputStream)
-Envío y recepción de mensajes.(read y write)
-Cierre de la conexión (close).
-
-Sockets TPC → Servidor:
-```java
-ServerSocket server = null;
-Socket service = null;
-DataInputStream sIn = null;
-DataOutputStream sOut = null;
-// try-with-resource: Obj dentro se cierran automáticamente al 
-//finalizar try, sino habría que hacerlo
-try (ServerSocket server = new ServerSocket(portNumber);
-    Socket service = server.accept();
-    DataInputStream sIn = new DataInputStream(service.getInputStream());
-    DataOutputStream sOut = new DataOutputStream(service.getOutputStream());
-    )
-{
-... // Comunicación con el cliente.
-} catch (IOException e) {
-System.out.println(e);
-}
-````
-
-Sockets TCP → Cliente:
-Creación del objeto Socket.
-Se puede especificar dirección y puerto en el constructor
-Conexión del socket (connect).
-Obtener del socket establecido Input y Output Streams para poder comunicarse con el cliente (.getInputStream .getOutputStream)
-Envío y recepción de mensajes.
-Cierre de la conexión (close).
-
-Sockets TCP → Cliente:
-Socket mySocket = null;
-DataInputStream sIn = null;
-DataOutputStream sOut = null;
-try (
-Socket mySocket = new Socket("address", portNumber);
-DataInputStream sIn = new DataInputStream(mySocket.getInputStream());
-DataOutputStream sOut = new DataOutputStream(mySocket.getOutputStream());
-)
-{
-... // Comunicación Cliete - Servidor
-} catch (IOException e) {
-System.out.println(e);
-}
-
-Sockets TCP → Aplicaciones Cliente-Servidor 
-utilizaremos dos proyectos separados
-Uno para el Cliente
-Otro para el Servidor
-Podemos tratar los dos lados de la comunicación de forma indempendiente.
-Para ejecutar Aplicaciones Cliente – Servidor
-Primero iniciamos el servidor 
-Cuando esté escuchando por el puerto y esperando conexiones → Ejecutaremos el Cliente
-Ejemplo: Ejemplo1 y 2: ClienteSaluda – ServidorSaluda
-Evidentemente se pueden utilizar otros Stream para recibir y enviar información: BufferedReader o PrintStream.
-Si la comunicación es asincrona → cliente puede enviar mensajes cuando quiera y/o hay múltiples clientes → no se puede utilizar try-with-resource
-
 Métodos útiles
 ServerSocket(int port, int max)
 max : n.º máximo de conexiones simultáneas
@@ -88,18 +12,7 @@ InetAddress 	getLocalAddress() → devuelve la dirección local del socket
 SocketAddress	getLocalSocketAddress()
 
 
-Clase InetAddress
-Representa una Dirección IP en Java
-Tiene métodos para conectarse a un servidor DNS y resolver un nombre de host.
-Me permite conectarme a un servidor por el nombre de dominio y automáticamente obtiene la IP
-Para crear un objeto InetAddress usamos alguno de los métodos estáticos
-InetAddress address = InetAddress.getByName("www.myserver.com");
-También podemos hacer búsqueda inversa → encontrar el nombre de dominio a partir de la IP
-InetAddress address = InetAddress.getByName("201.114.121.65");
-Métodos
-getHostName() → devuelve el nombre de host
-getHostAddress() → devuelve la IP en un String
-Ejemplo3: DireccionIP
+
 
 Clase InetSocketAddress
 Implementa la clase abstracta SocketAddress
@@ -139,7 +52,7 @@ Socket UDP
 No necesitamos establecer una conexión previa
 Necesitaremos especificar en cada mensaje que se envíe las dirección IP y el puerto del receptor y del emisor.
 Clase DatagramSocket
-Implementa una comunicación UDP. 
+Implementa una comunicación UDP.
 Envía y recibe objeto de tipo DatagramPacket
 Clase DatagramPacket
 Implementa los objetos (paquetes) que se enviarán y  recibirán en un DatagramSocket
@@ -148,7 +61,7 @@ Socket UDP → Pasos para conectar
 1. Crear un DatagramSocket especificando la IP local y el puerto.
 En el cliente no es necesario especificar nada, se usará cualquier puerto disponible.
 DatagramSocket socket = new DatagramSocket();
-En el servidor: 
+En el servidor:
 especificamos el puerto en el que escucha
 DatagramSocket socket = new DatagramSocket(portNumber);
 También podemos especificar IP y puerto
@@ -158,7 +71,7 @@ DatagramSocket socket = new DatagramSocket(portNumber, address);
 
 Socket UDP → Pasos para conectar
 2. Cuando se reciba un paquete (DatagramPacket) podremos enviar mensajes a la dirección y puerto almacenado en el paquete utilizando otro DatagramPacket.
-Creamos un objeto DatagramPacket especificando 
+Creamos un objeto DatagramPacket especificando
 El mensaje a enviar como byte array
 Su longitud
 IP y puerto de destino
@@ -184,10 +97,10 @@ Ejemplo 5: ClienteUDPSaluda - ServidorUDPSaluda
 
 Tarea 2: Diccionario
 Crea un proyecto llamado DiccionarioCliente que envíe al servidor una palabra escrita por el usuario.
-Configura un timeout en el cliente de 5 segundos. 
+Configura un timeout en el cliente de 5 segundos.
 Si el timeout expira el cliente debe sacar un mensaje para el susuario de “Traducción no encontrada”
 Crea un proyecto llamado DiccionarioServidor que escuche en el puerto 6000. Tendrá una colección (HashMap) con palabras en ingles y su traducción al castellano, o lo que quieras.
-El servidor recibe la palabra enviada por el cliente y devolverá la traducción de la misma. 
+El servidor recibe la palabra enviada por el cliente y devolverá la traducción de la misma.
 Si no encuentra la palabra en la colección, el servidor no devolverá nada.
 
 
@@ -230,7 +143,7 @@ socketOut = new DataOutputStream(service.getOutputStream());
 
 
 Conexiones a Múltiples Clientes
-Si trabajamos con servidores UDP, no necesitamos usar hilos, ya que cada paquete se envía y recibe sin relación con los otros y no establecemos conexiones distintas con cada cliente. 
+Si trabajamos con servidores UDP, no necesitamos usar hilos, ya que cada paquete se envía y recibe sin relación con los otros y no establecemos conexiones distintas con cada cliente.
 Solo necesitamos implementar un bucle que reciba datagramas, y responda.
 
 Conexiones a Múltiples Clientes
@@ -267,4 +180,3 @@ Permite más de un cliente conectado al servidor.
 El servidor debe hacer buscar en el diccionario las palabras de cualquier cliente.
 El cliente pedirá al usuario palabras hasta que escriba: stop
 Llama a los proyectos DiccionarioClienteMejorado y DiccionarioServidorMejorado
-
