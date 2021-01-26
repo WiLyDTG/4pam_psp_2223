@@ -169,8 +169,6 @@ public class Client
 	public Client(String address, int port)
 	{
         // establish a connection
-        
-        
 		try
 		{
 			socket = new Socket(address, port);
@@ -180,7 +178,6 @@ public class Client
             input = new DataInputStream(System.in);
             
             br = new BufferedReader(new InputStreamReader(input));
-
 
 			// sends output to the socket
 			out = new DataOutputStream(socket.getOutputStream());
@@ -202,7 +199,6 @@ public class Client
 		{
 			try
 			{
-				
                 line = br.readLine();
 				out.writeUTF(line);
 			}
@@ -250,3 +246,4 @@ Me permite conectarme a un servidor por el nombre de dominio y automáticamente 
 Para crear un objeto **InetAddress** usamos alguno de los métodos estáticos mostrados en la tabla siguiente:
 
 ![MÉTODOS DE LA CLASE INETADDRESS](IMAGENES/IMG_03_07.png)
+
