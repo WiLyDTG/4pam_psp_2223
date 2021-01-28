@@ -9,12 +9,10 @@ public class Client
     private DataOutputStream out	 = null;
     private BufferedReader br = null;
 
-	// constructor to put ip address and port
+	//El constructor lo hace todo, se conecta y envia y recibe los mensajes
 	public Client(String address, int port)
 	{
-        // establish a connection
-        
-        
+        //establecemos la conexión
 		try
 		{
 			socket = new Socket(address, port);
