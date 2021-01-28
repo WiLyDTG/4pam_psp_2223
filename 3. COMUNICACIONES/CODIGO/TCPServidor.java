@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
 
-public class TCPejemplo1Servidor {
+public class TCPServidor {
   public static void main(String[] arg) throws IOException {
 	int numeroPuerto = 6000;// Puerto
 	ServerSocket servidor = new ServerSocket(numeroPuerto);
@@ -15,7 +15,7 @@ public class TCPejemplo1Servidor {
 	DataInputStream flujoEntrada = new DataInputStream(entrada);
 
 	// EL CLIENTE ME ENVIA UN MENSAJE
-	System.out.println("RECIBIDO MENSAJE: \n\t" + 
+	System.out.println("RECIBIDO MENSAJE: \n\t" +
                       flujoEntrada.readUTF());
 
 	// CREO FLUJO DE SALIDA AL CLIENTE
@@ -34,4 +34,4 @@ public class TCPejemplo1Servidor {
 	clienteConectado.close();
 	servidor.close();
   }// main
-}// fin
+}
