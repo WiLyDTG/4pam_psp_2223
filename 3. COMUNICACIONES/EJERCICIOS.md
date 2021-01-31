@@ -22,3 +22,12 @@ Tendrá una colección [HashMap](https://www.w3schools.com/java/java_hashmap.asp
 
     - El servidor recibe la palabra enviada por el cliente y devolverá la traducción de la misma.
     - Si no encuentra la palabra en la colección, el servidor no devolverá nada, haciendo que el TIME-OUT del cliente se consuma.
+
+## EJERCICIO: CUENTA LETRAS 'a'
+Crear dos programas en JAVA (Cliente-Servidor)que usando las clases **DatagramSocket** y **DatagramPacket** realicen el sguiente procedimiento:
+* El programa cliente lee un mesaje por teclado usando su entrada estándar y envía dicho texto  al servidor por un puerto acordado entre los dos programas.
+* El programa servidor lee el datagrama con el mensaje y devuelve al cliente el número de apariciones de la letra 'a' en el texto. 
+* El programa cliente recibe el datagrama del servidor y muestra el número de repeticiones de la letra 'a'. 
+
+El ejercicio debe mostrar algo parecido a esto:
+![FUNCIONAMIENTO UDP](IMAGENES/IMG_03_12.png)
