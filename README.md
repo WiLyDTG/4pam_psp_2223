@@ -4,6 +4,6 @@ desde aqui puedes acceder a los apuntes y prácticas de la asignatura **PROGRAMA
 ## CONTENIDOS
 [TEMA 1: Procesos]()
 [TEMA 2: Hilos]()
-[TEMA 3: Comunicaciones](3. COMUNICACIONES/I.INDICE.MD)
+[TEMA 3: Comunicaciones](https://github.com/joaquinalbares/psp_4pam/blob/main/3.%20COMUNICACIONES/I.INDICE.MD)
 
 
