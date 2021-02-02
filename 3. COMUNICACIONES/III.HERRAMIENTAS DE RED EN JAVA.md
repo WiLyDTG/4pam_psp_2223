@@ -111,15 +111,17 @@ En general una URL que localiza recursos empleando el protocolo HTTP se divide e
 
 La imagen siguiente muestra la descripción detallada de cómo se forman las URL:
 
-![image-20210201193353770](/Users/joaquinrios/Desktop/psp_4pam/3. COMUNICACIONES/IMAGENES/IMG_03_13.png)
+![image-20210201193353770](IMAGENES/IMG_03_13.png)
 
 Los objetos de la clase **URL** se pueden crear de cuatro formas diferentes, dependiendo de los parámetros que se añadan al constructor:
 
-![image-20210201193712610](/Users/joaquinrios/Desktop/psp_4pam/3. COMUNICACIONES/IMAGENES/IMG_03_14.png)
+![image-20210201193712610](IMAGENES/IMG_03_14.png)
 
 El constructor puede lanzar la excepción **MalformedURLException** en caso de que la URL no exista, esté mal construida, o no pueda verificar que realmente exista la máquina o el recurso en la red.
 
 Algunos de los métodos más destacados son los siguientes:
 
-![image-20210201194109627](/Users/joaquinrios/Desktop/psp_4pam/3. COMUNICACIONES/IMAGENES/IMG_03_15.png)
+![image-20210201194109627](IMAGENES/IMG_03_15.png)
+
+
 
