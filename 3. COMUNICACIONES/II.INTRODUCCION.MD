@@ -1,3 +1,7 @@
+
+
+# MARCO TEÓRICO
+
 ## Sistema Distribuido
 
 - Está formado por más de un elemento computacional distinto e independiente (un procesador dentro de una máquina, un ordenador dentro de una red, etc), que no comparte memoria con el resto.
@@ -48,4 +52,5 @@ Opera en tres fases:
     * Identifican una conexión dentro de una máquina
     * 65000 puertos en cada host, en TCP y UDP
 * Identificar una conexión
+    
     * IP origen, IP destino, Puerto origen, Puerto destino 
