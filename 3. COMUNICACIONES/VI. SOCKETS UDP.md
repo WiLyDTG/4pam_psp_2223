@@ -18,7 +18,7 @@ Las funcionalidades que ofrece al nivel de aplicación lo asemeja con TCP, pero 
 
 * La longitud máxima de cada paquete es de 64 KB como maximo.
 
-![DATAGRAMA UDP](/Users/joaquinrios/Desktop/psp_4pam/3. COMUNICACIONES/IMAGENES/IMG_03_09.png)
+![DATAGRAMA UDP](IMAGENES/IMG_03_09.png)
 
 Al ser mucho mas ligero y eficiente que TCP, es muy extendido su uso en la programación distribuida.
 
@@ -80,7 +80,7 @@ Los métodos más usados son:
 
 El funcionamiento de las aplicaciones usando UDP se puede mostrar gráficamente usando la siguiente imagen:
 
-![FUNCIONAMIENTO UDP](/Users/joaquinrios/Desktop/psp_4pam/3. COMUNICACIONES/IMAGENES/IMG_03_10.png)
+![FUNCIONAMIENTO UDP](IMAGENES/IMG_03_10.png)
 
 Y su explicación sería de la siguiente manera:
 
@@ -159,7 +159,6 @@ public class UDPServidor {
 2. Creamos un **DatagramPacket** donden guardar los datos a enviar.
 3. Con el método **send()**, enviamos la petición en forma de datagrama.
 4. Creamos un segundo **DatagramPacket** donde guardar los datos a enviar. 
-5. El servidor 
 6. El cliente recibe la respuesta del servidor usando el método **receive()** del socket. 
 
 Y el código es:
@@ -218,4 +217,4 @@ public class UDPCliente {
 
 Para demostrar el funcionamiento de esta metodología vamos a ver un ejemplo básico de comunicación cliente-servidor.
 
-![FUNCIONAMIENTO UDP](/Users/joaquinrios/Desktop/psp_4pam/3. COMUNICACIONES/IMAGENES/IMG_03_11.png)
+![FUNCIONAMIENTO UDP](IMAGENES/IMG_03_11.png)
