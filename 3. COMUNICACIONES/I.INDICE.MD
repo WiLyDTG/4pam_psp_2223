@@ -4,6 +4,6 @@
 * [Sockets TCP](V.SOCKETS_TCP.md)
 * [Sockets UDP](V.SOCKETS_UDP.md)
 * [Objetos y Sockets](VII.OBJETOS_Y_SOCKETS.md)
-* [Multicast](VIII.MULTICAST.md)
+* [Hilos y Socekts](VIII.HILOS_Y_SOCKETS.md)
 * [Ejercicios](EJERCICIOS.md)
 
