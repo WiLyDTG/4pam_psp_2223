@@ -25,12 +25,14 @@ En primer lugar, vamos a crear el objeto a enviar, en este caso una cadena de te
 ```java
 import java.io.Serializable;
 
-// must implement Serializable in order to be sent
+// La clase del objeto a enviar implementa Serializable
+@SuppressWarnings("serial")
 public class Message implements Serializable{
     private final String text;
 
     public Message(String text) {
-        this.text = text;
+			super();
+      this.text = text;
     }
 
     public String getText() {
@@ -50,27 +52,27 @@ import java.util.List;
 public class objectSocketClient {
 
     public static void main(String[] args) throws IOException {
-        // need host and port, we want to connect to the ServerSocket at port 7777
-        Socket socket = new Socket("localhost", 7777);
-        System.out.println("Connected!");
+      // Coenctamos a un servidor local por el puerto 7777
+      Socket socket = new Socket("localhost", 7777);
+      System.out.println("¡Connectado!");
 
-        // get the output stream from the socket.
-        OutputStream outputStream = socket.getOutputStream();
-        // create an object output stream from the output stream so we can send an object through it
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+      // Creamos el OutputStream para enviar
+      OutputStream outputStream = socket.getOutputStream();
+      // Creamos un ObjectOutputStream para enviar el objeto usando el anterior
+      ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 
-        // make a bunch of messages to send.
-        List<Message> messages = new ArrayList<>();
-        messages.add(new Message("Hello from the other side!"));
-        messages.add(new Message("How are you doing?"));
-        messages.add(new Message("What time is it?"));
-        messages.add(new Message("Hi hi hi hi."));
+      // make a bunch of messages to send.
+      List<Message> messages = new ArrayList<>();
+      messages.add(new Message("Saludos desde el Cliente"));
+      messages.add(new Message("¿Qué tal por allí?"));
+      messages.add(new Message("Espero que bien"));
+      messages.add(new Message("Corto y cierro."));
 
-        System.out.println("Sending messages to the ServerSocket");
-        objectOutputStream.writeObject(messages);
+      System.out.println("Enviando mensajes al ServerSocket");
+      objectOutputStream.writeObject(messages);
 
-        System.out.println("Closing socket and terminating program.");
-        socket.close();
+      System.out.println("Cerrando socket finalizando programa.");
+      socket.close();
     }
 }
 ```
@@ -85,28 +87,65 @@ import java.util.List;
 
 public class Server {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        // don't need to specify a hostname, it will be the current machine
-        ServerSocket ss = new ServerSocket(7777);
-        System.out.println("ServerSocket awaiting connections...");
-        Socket socket = ss.accept(); // blocking call, this will wait until a connection is attempted on this port.
-        System.out.println("Connection from " + socket + "!");
+      // No es necesario especificar un hostname, será la propia máquina
+      ServerSocket ss = new ServerSocket(7777);
+      System.out.println("ServerSocket esperando conexiones...");
+      // El servidor se queda a la espera de aceptar una conexión  
+      Socket socket = ss.accept(); 
+      System.out.println("Conectado desde " + socket + "!");
 
-        // get the input stream from the connected socket
-        InputStream inputStream = socket.getInputStream();
-        // create a DataInputStream so we can read data from it.
-        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+      // Obtenemos el  input stream del socket conectado
+      InputStream inputStream = socket.getInputStream();
+      // Creamos un DataInputStream para leer los datos de él.
+      ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 
-        // read the list of messages from the socket
-        List<Message> listOfMessages = (List<Message>) objectInputStream.readObject();
-        System.out.println("Received [" + listOfMessages.size() + "] messages from: " + socket);
-        // print out the text of every message
-        System.out.println("All messages:");
-        listOfMessages.forEach((msg)-> System.out.println(msg.getText()));
+      // casteamos el objeto leido
+      List<Message> listOfMessages = (List<Message>) objectInputStream.readObject();
+      System.out.println("Se han recibido [" + listOfMessages.size() 
+                         + "] mensajes de: " + socket);
+      // mostramos el contenido de cada mensaje
+      System.out.println("Mensajes recibidos:");
+      listOfMessages.forEach((msg)-> System.out.println(msg.getText()));
 
-        System.out.println("Closing sockets.");
-        ss.close();
-        socket.close();
+      System.out.println("Cerrando sockets.");
+      ss.close();
+      socket.close();
     }
 }
+```
+
+Como vemos, el procedimiento es muy parecido a lo visto anteriormente, con la particularidad de que hay que incluir los ObjectInputStream en el cliente y el servidor y "castear" el objeto en el servido.
+
+El resultado de ejecutar los programas es el siguiente:
+
+![image-20210203234024695](IMAGENES/IMG_03_17.png)
+
+## ENVÍO DE OBJETOS USANDO UDP
+
+Para intercambiar objetos en sockets UDP utilizaremos las clases **ByteArrayOutputStream** y **ByteArraylnputStream.** En lugar de implementar el *ObjectOutputStream* sobre un socket, lo que hacemos en su lugar es crear un array de bytes, para que pueda ser troceado en datagramas y luego enviado a las capas inferiores del protocolo IP, y luego crear el *ObjectOutputStream*, sobre el que escribiremos el objeto a enviar. El siguiente ejemplo muestra el proceso de empaquetado y envío de un objeto de tipo persona que tiene dos atributos (String nombre , int edad).
+
+```java
+Persona persona = new Persona ("Maria", 22) ;
+
+//CONVERTIMOS OBJETO A BYTES
+ByteArrayOutputStream bs = new ByteArrayOutputStream();
+ObjectOutputStream out = new ObjectOutputStream (bs) ;
+out.writeObject(persona); //escribir objeto Persona en el stream
+out.close(); //cerrar stream
+byte[] bytes =  bs.toByteArray() ; // objeto en bytes 
+```
+
+El servidor recibirá la información en un array de bytes que deberá recomponer:
+
+```java
+// RECIBO DATAGRAMA
+byte[] recibidos = new byte[1024] ;
+DatagramPacket paqRecibido = new DatagramPacket (recibidos, recibidos.length) ;
+socket.receive (paqRecibido); //recibo el datagrama
+// CONVERTIMOS BYTES A OBJETO
+ByteArrayInputStream baits = new ByteArrayInputStream (recibido) ;
+ObjectInputStream in = new ObjectInputStream(baits) ;
+Persona persona = (Persona) in.readObject();//obtengo objeto
+in.close();
 ```
 
