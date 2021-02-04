@@ -3,7 +3,7 @@ package HILOS;
 import java.io.*;
 import java.net.*;
 
-public class HiloServidor extends Thread {
+public class HiloServidor extends Thread/Users/joaquinrios/Desktop/psp_4pam/3.COMUNICACIONES/CODIGO/HILOS/HiloServidor.java {/Users/joaquinrios/Desktop/psp_4pam/3.COMUNICACIONES/CODIGO/HILOS/HiloServidor.java
 	BufferedReader fentrada;
 	PrintWriter fsalida;
 	Socket socket = null;
