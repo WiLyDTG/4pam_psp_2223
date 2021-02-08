@@ -149,3 +149,7 @@ Persona persona = (Persona) in.readObject();//obtengo objeto
 in.close();
 ```
 
+## BIBLIOGRAFÍA
+
+* [https://gist.github.com/chatton/14110d2550126b12c0254501dde73616](https://gist.github.com/chatton/14110d2550126b12c0254501dde73616)
+* 
