@@ -22,4 +22,7 @@ Por otr lado debemos crear la clase que contenga los hilos generados por el serv
 
 Cuando un cliente finaliza (pulsa el botón Salir de su pantalla) envía un asterisco al servidor de chat, entonces se sale del bucle while.
 
-![ea990fab4203c6b091ba9c2b01f1364d.png](:/462225b046e34460809f988a03c1fdfe)
+![IMAGENES/ea990fab4203c6b091ba9c2b01f1364d.png](IMAGENES/ea990fab4203c6b091ba9c2b01f1364d.png)
+
+
+
