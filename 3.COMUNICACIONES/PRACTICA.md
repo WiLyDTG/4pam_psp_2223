@@ -24,5 +24,7 @@ Cuando un cliente finaliza (pulsa el botón Salir de su pantalla) envía un aste
 
 ![IMAGENES/ea990fab4203c6b091ba9c2b01f1364d.png](IMAGENES/ea990fab4203c6b091ba9c2b01f1364d.png)
 
+Desde aqui puedes descargar el código común de los hilos:
 
+[HilosComun](CODIGO/HilosComun.java)
 
