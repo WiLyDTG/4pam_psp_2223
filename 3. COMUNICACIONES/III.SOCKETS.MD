@@ -4,7 +4,7 @@ Los protocolos TCP y UDP utilizan el concepto de *socket* para favorecer un cana
 
 La comunicación mediante sockets se sustenta en el concepto de transmisión de un mensaje entre un conector de una aplicación y un conector de otra, a este conector es a lo que llamamos *socket*. 
 
-JAVA nos permite un nivel de abstracción mayor o menor dependiendo del nivel en el que nos encotremos dentro de la pila de comunicaciones TCP/IP.
+JAVA nos permite un nivel de abstracción mayor o menor dependiendo del nivel en el que nos encontremos dentro de la pila de comunicaciones TCP/IP.
 
 ![COMUNICACIÓN A TRAVÉS DE SOCKETS](IMAGENES/IMG_03_04.png)
 
@@ -13,8 +13,8 @@ Algunos aspectos a destacar acerca de los sockets son los siguientes:
 * Este puerto identifica el proceso que esta enviando o recibiendo la información a través del socket.
 * Cuando un proceso local quiere comunicarse con un proceso remoto, los dos establecen sus propios números de puerto.
 * Cada vez que la información se envía entre ellos, la computadora sabe a que proceso debe recibir la información comprobando el puerto de destino.
-    
-    Ejemplo: Sl host A, tiene un proceso PA escuchando en el puerto 33. Cada vez que el A reciba un mensaje con puerto de destino 33, ese mensaje lo recibirá el proceso PA.
+  
+    Ejemplo: El host A, tiene un proceso PA escuchando en el puerto 33. Cada vez que el A reciba un mensaje con puerto de destino 33, ese mensaje lo recibirá el proceso PA.
 
 ### Comunicación Cliente – Servidor
 - Servidor permanece escuchando en un puerto dado, esperando peticiones de un Cliente.
@@ -47,7 +47,7 @@ por el que el cliente manda peticiones al servidor y el servidor envía las resp
     Ej: Streaming → es más importante recibir el vídeo rápido que perder un fotograma
 
 ## HERRAMIENTAS DE RED EN JAVA
-Previamente a entrar en la coumunicación a través de sockets con JAVA, vamos a ver algunas utlidades que ofrecen las librerías de java.net para las comunicaciones.
+Previamente a entrar en la comunicación a través de sockets con JAVA, vamos a ver algunas utilidades que ofrecen las librerías de java.net para las comunicaciones.
 
 Las clases de uso más común son:
 * La clase **URL**, Uniform Resource Locator (Localizador Uniforme de Recursos): Representa un puntero a un recurso en la Web.
@@ -56,35 +56,37 @@ Las clases de uso más común son:
 * La clase **URLConnection**, crea un enlace  entre el equipo que está solicitando un recurso web y el equipo que lo ofrece. Admite operaciones mas complejas en las URL que la clase anterior.
 
 * Las clases **ServerSocket** y **Socket**, gestionan los sockets TCP. 
-	- **ServerSocket**: utilizada por el programa servidor para crear un socket en el puerto en el que escucha las peticiones de conexion de los clientes. 
+	- **ServerSocket**: utilizada por el programa servidor para crear un socket en el puerto en el que escucha las peticiones de conexión de los clientes. 
 	- **Socket**: utilizada tanto por el cliente como por el servidor para comunicarse entre si leyendo y escribiendo datos usando streams.
 
-* Las clases **DatagramSocket**, **MulticastSocket** y **DatagramPacket** usadas en la comunicacion mediante UDP.
+* Las clases **DatagramSocket**, **MulticastSocket** y **DatagramPacket** usadas en la comunicación mediante UDP.
 
 * La clase **InetAddress**, que para manejar
 las direcciones de Internet.
 
 
 ### La clase IntetAddress
- 
-Si hacemos uso de la Clase **InetAddress**, podemos obetner la representación de una dirección IP en Java. Dicha clase dispone de métodos para conectarse a un servidor DNS y resolver un nombre de host.
+
+Si hacemos uso de la Clase **InetAddress**, podemos obtener la representación de una dirección IP en Java. Dicha clase dispone de métodos para conectarse a un servidor DNS y resolver un nombre de host.
 
 Me permite conectarme a un servidor por el nombre de dominio y automáticamente obtiene la IP 
 
 Para crear un objeto **InetAddress** usamos alguno de los métodos estáticos mostrados en la tabla siguiente:
 
+| **MÉTDODO**                                      | DESCRIPCIÓN                                                  |
+| ------------------------------------------------ | ------------------------------------------------------------ |
+| **InetAddress getLocalHost()**                   | Devuelve un objeto de tipo *InetAddress* con los datos de direccionamiento locales. |
+| **InetAddress getByName(String nombre_host)**    | Devuelve un objeto de tipo InetAddress con los datos el direccionamiento según el nombre que le pasamos como parámetro. Puede devolver una Exception del tipo *UnknownHostException* si el nombre pasado como parámetro no puede ser resuelto. |
+| **InetAddress getAllByName(String nombre_host)** | Devuelve un array de objetos de tipo InetAddress con los datos del direccionamiento del nombre pasado como parámetro. Puede devolver una Exception del tipo *UnknownHostException* si el nombre pasado como parámetro no puede ser resuelto. |
+| **byte[] getAddress()**                          | Retorna la dirección IP                                      |
+| **String getHostAddress()**                      | Retorna La representación en texto de la IP                  |
+| **String getHostName()**                         | Retorna la representación en texto del nombre de host.       |
+| **boolean isReachable(int tiempo)**              | Retorna *TRUE* o *FALSE* si la dirección es alcanzable en el tiempo establecido como parámetro. |
 
-|MÉTDODO | DESCRIPCIÓN |
-|--------|-------------|
-**InetAddress getLocalHost()** | Devuelve un objeto de tipo *InetAddress* con los datos de direccionamiento locales.
-**InetAddress getByName(String nombre_host)**| Devuelve un objeto de tipo InetAddress con los datos el direccionamiento según el nombre que le pasamos como parámetro. Puede devolver una Exception del tipo *UnknownHostException* si el nombre pasado como parámetro no puede ser resuelto.
-**InetAddress getAllByName(String nombre_host)**| Devuelve un array de objetos de tipo InetAddress con los datos del direccionamiento del nombre pasado como parámetro. Puede devolver una Exception del tipo *UnknownHostException* si el nombre pasado como parámetro no puede ser resuelto.
-**byte[] getAddress()**| Retorna la dirección IP
-**String getHostAddress()**| Retorna La representación en texto de la IP
-**String getHostName()**| Retorna la representación en texto del nombre de host.
-**boolean isReachable(int tiempo)**| Retorna *TRUE* o *FALSE* si la dirección es alcanzable en el tiempo establecido como parámetro.
+
 
 ### La clase URLConnection
+
 Otra de las clases útiles que ofrece JAVA es **URLConnection**, con una serie de métodos que 
 
 ## SOCKETS EN JAVA
@@ -293,7 +295,7 @@ En este nivel, la información se separa en paquetes (o  mensajes) se denominan 
 
 Las funcionalidades que ofrece al nivel de aplicación lo asemeja con TCP, pero su funcionamiento es diferente en algunos aspectos:
 
-* En primer lugar, se trata de un protocolo no orientado a conexion, por lo que orfece mas rapidez que TCP, ya que no es
+* En primer lugar, se trata de un protocolo no orientado a conexión, por lo que ofrece mas rapidez que TCP, ya que no es
 necesario realizar el "*handshake*" para establecer la conexión.
 
 * Su fiabilidad es menor, no está garantizado que lleguen todos los mensajes.
@@ -301,7 +303,7 @@ necesario realizar el "*handshake*" para establecer la conexión.
 * El orden de llegada de los paquetes en el mismo orden
 que fueron enviados, puede no respetarse.
 
-* La longitud máxima de cada paquete es de 64 KB como maximo.
+* La longitud máxima de cada paquete es de 64 KB como máximo.
 
 ![DATAGRAMA UDP](IMAGENES/IMG_03_09.png)
 
@@ -317,25 +319,25 @@ Implementa los objetos (paquetes) que se enviarán y  recibirán en un DatagramS
 
 El constructor de esta clase puede recibir las siguientes configuraciones de inicio:
 
-|MÉTDODO | DESCRIPCIÓN |
-|--------|-------------|
-| **DatagramPacket(byte[] buf, int length)** | Constructor para datagramas recibidos. Se especifica la cadena de bytes en la que alojar el mensaje (bu!) y la longitud (length) de la misma.
-| **DatagramPacket(byte[] buf, int offset, int length)** | Constructor para datagramas recibidos. Se especifica la cadena de bytes en la que alojar el mensaje, la longitud de la misma y el offset (offset) dentro de la cadena.
-| **DatagramPacket(byte[] buf, int length, lnetAddress addrss, int port)** | Constructor para el envío de datagramas. Se especifica la cadena de bytes a enviar (**buf**), la longitud (**length**), el número de puerto de destino (**port**) y el el *host* especificado en la dirección **addrss**.
-| **DatagramPacket(byte[] buf, int offset, int length, lnetAddress address, int port)** | Constructor para el envío de datagramas. Igual que el anterior pero se especifica un *offset* dentro de la cadena de bytes.
+|MÉTDODO                                     |              DESCRIPCIÓN           |
+|--------------------------------------------|------------------------------------|
+| **DatagramPacket(byte[] buf, int length)** | Constructor para datagramas recibidos. Se especifica la cadena de bytes en la que alojar el mensaje (bu!) y la longitud (length) de la misma.|
+| **DatagramPacket(byte[] buf, int offset, int length)** | Constructor para datagramas recibidos. Se especifica la cadena de bytes en la que alojar el mensaje, la longitud de la misma y el offset (offset) dentro de la cadena.|
+| **DatagramPacket(byte[] buf, int length, lnetAddress addrss, int port)** | Constructor para el envío de datagramas. Se especifica la cadena de bytes a enviar (**buf**), la longitud (**length**), el número de puerto de destino (**port**) y el el *host* especificado en la dirección **addrss**.|
+| **DatagramPacket(byte[] buf, int offset, int length, lnetAddress address, int port)** | Constructor para el envío de datagramas. Igual que el anterior pero se especifica un *offset* dentro de la cadena de bytes.|
 
 Los métodos de esta clase son:
 
-|MÉTDODO | DESCRIPCIÓN |
-|--------|-------------|
-| **InetAddress getAddress ()** | Devuelve la dirección IP del hostal cual se le envía el datagrama o del que el datagrama se recibió.
-| **byte[] getData()** | Devuelve el mensaje contenido en el datagrama tanto recibido como enviado.
-| **int getLength ()** | Devuelve la longitud de los datos a enviar o a recibir.
-| **int getPort())** | evuelve el número de puerto de la máquina remota a la que se le va a enviar el datagrama o del que se recibió el datagrama.
-| **setAddress (InetAddress addr)** | Establece la dirección IP de la máquina a la que se envía el datagrama.
-| **setData (byte [buf])** | Establece el búfer de datos para este paquete.
-| **setLength (int length)**| Ajusta la longitud de este paquete.
-| **setPort (int Port)** | Establece el número de puerto del host remoto al que este datagrama se envía.
+|MÉTDODO                                     |              DESCRIPCIÓN           |
+|--------------------------------------------|------------------------------------|
+| **InetAddress getAddress ()** | Devuelve la dirección IP del hostal cual se le envía el datagrama o del que el datagrama se recibió.|
+| **byte[] getData()** | Devuelve el mensaje contenido en el datagrama tanto recibido como enviado.|
+| **int getLength ()** | Devuelve la longitud de los datos a enviar o a recibir.|
+| **int getPort())** | Devuelve el número de puerto de la máquina remota a la que se le va a enviar el datagrama o del que se recibió el datagrama.|
+| **setAddress (InetAddress addr)** | Establece la dirección IP de la máquina a la que se envía el datagrama.|
+| **setData (byte [buf])** | Establece el búfer de datos para este paquete.|
+| **setLength (int length)**| Ajusta la longitud de este paquete.|
+| **setPort (int Port)** | Establece el número de puerto del host remoto al que este datagrama se envía.|
 
 
 
@@ -344,23 +346,26 @@ Implementa una comunicación UDP. Envía y recibe objeto de tipo *DatagramPacket
 
 El constructor se puede inicializar de las siguientes formas:
 
-|CONSTRUCTOR | DESCRIPCIÓN |
-|--------|-------------|
-**DatagramSocket()** | Construye un socket para datagramas, el sistema elige un puerto de los que están libres.
-**DatagramSocket (int port)** | 
-**DatagramSocket (int port, InetAddress ip)**| Permite especificar, además del puerto, la dirección local a la que se va a asociar el socket.
+|       MÉTDODO                        |              DESCRIPCIÓN           |
+|--------------------------------------|------------------------------------|
+| **DatagramSocket()**                 | Constructor vacío |
+| **DatagramSocket (int port)**        |  Construye un socket para datagramas, el sistema elige un puerto de los que están libres. |
+| **DatagramSocket (int port, InetAddress ip)** | Permite especificar, además del puerto, la dirección local a la que se va a asociar el socket. |
 
 Los métodos más usados son:
 
-|MÉTDODO | DESCRIPCIÓN |
-|--------|-------------|
-**receive (DatagramPacket paquete)**| Recibe un DatagramPacket del socket, y llena paquete con los datos que recibe (mensaje, longitud y origen). Puede lanzar la excepción *IOException*.
-**send(DatagramPacket paquete)** | Envía un DatagramPacket a través del socket. El argumento paquete contiene el mensaje y su destino. Puede lanzar la excepción *IOException*.
-**close()**| Se encarga de cerrar el socket.
-**int getLocalPort()** | Devuelve el número de puerto en el host local al que está enlazado el socket, -1 si el socket está cerrado y O si no está enlazado a ningún puerto.
-**int getPort()**| Devuelve el número de puerto al que está conectado el socket, -1 si no está conectado.
-**connect(lnetAddress address, int port)** | Conecta el socket a un puerto remoto y una dirección IP concretos, el socket solo podrá enviar y recibir mensajes desde esa dirección.
-**setSoTimeout(int timeout)** | Permite establecer un tiempo de espera límite. Entonces el método **receive()** se bloquea durante el tiempo fijado. Si no se reciben datos en el tiempo fijado se lanza la excepción *InterruptedIOException*.
+|       MÉTDODO                        |                        DESCRIPCIÓN                     |
+|--------------------------------------|--------------------------------------------------------|
+| **receive (DatagramPacket paquete)** | Recibe un DatagramPacket del socket, y llena paquete con los datos que recibe (mensaje, longitud y origen). Puede lanzar la excepción *IOException*. |
+| **send(DatagramPacket paquete)**     | Envía un DatagramPacket a través del socket. El argumento paquete contiene el mensaje y su destino. Puede lanzar la excepción *IOException*. |
+| **close()**                          | Se encarga de cerrar el socket. |
+| **int getLocalPort()** | Devuelve el número de puerto en el host local al que está enlazado el socket, -1 si el socket está cerrado y 0 si no está enlazado a ningún puerto. |
+| **int getPort()** | Devuelve el número de puerto al que está conectado el socket, -1 si no está conectado. |
+| **connect(lnetAddress address, int port)** | Conecta el socket a un puerto remoto y una dirección IP concretos, el socket solo podrá enviar y recibir mensajes desde esa dirección. |
+| **setSoTimeout(int timeout)** | Permite establecer un tiempo de espera límite. Entonces el método **receive()** se bloquea durante el tiempo fijado. Si no se reciben datos en el tiempo fijado se lanza la excepción *InterruptedIOException*. |
+|                               |                                                              |
+
+
 
 El funcionamiento de las aplicaciones usando UDP se puede mostrar gráficamente usando la siguiente imagen:
 
@@ -368,7 +373,7 @@ El funcionamiento de las aplicaciones usando UDP se puede mostrar gráficamente 
 
 Y su explicación sería de la siguiente manera:
 #### UDPServidor.java:
-1. Creamos un **DatagramSocket** asociado a un puerto local para escuchar peticiones de clientesy queda a la espera de recibir peticiones.
+1. Creamos un **DatagramSocket** asociado a un puerto local para escuchar peticiones de clientes y queda a la espera de recibir peticiones.
 2. Creamos un **DatagramPacket** donde guardar los datos a enviar.
 3. Mediante el método **receive()**, el servidor recibe las peticiones  del socket. Como en el contenido del datagrama va incluido el puerto y la IP del cliente emisor, el servidor puede conocer la dirección del emisor del datagrama.
 4.  El servidor construye su **DatagramPacket** con el mensaje a enviar y los datos obtenidos del cliente.
