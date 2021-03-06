@@ -1,4 +1,4 @@
-| [INICIO](../README.md) |  [ÍNIDCE UT4](INDICE.md) | UT 4: SERVICIOS DE RED |
+| [INICIO](../README.md) |  [ÍNIDCE UT4](INDICE.html) | UT 4: SERVICIOS DE RED |
 | -------------------------------- | :---------------------: | --------------------------: |
 # CREANDO UN SERVICIO REST CON SPRING Y MAVEN
 
