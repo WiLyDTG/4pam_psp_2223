@@ -1,5 +1,6 @@
-| [INICIO](../README.md) |  [ÍNIDCE UT4](INDICE.html) | UT 4: SERVICIOS DE RED |
-| -------------------------------- | :---------------------: | --------------------------: |
+| [INICIO](../README.md) | [ÍNIDCE UT4](INDICE.html) | UT 4: SERVICIOS DE RED |
+| ------ | :----------: | --------: |
+
 # CREANDO UN SERVICIO REST CON SPRING Y MAVEN
 
 Vamos a crear un servidor REST básico que ofrezca datos en formato JSON recibiendo peticiones Http de un cliente. Nuestro servicio se va a construir sobre una base de Spring, con una serie de dependencias necesarias para la creación.
