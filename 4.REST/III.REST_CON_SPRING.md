@@ -1,5 +1,5 @@
-| [INICIO](../README.md) | [ÍNIDCE UT4](INDICE.html) | UT 4: SERVICIOS DE RED |
-| ------ | :----------: | --------: |
+<table width="100%"><thead><tr><th>[INICIO](../README.md) </th><th> [ÍNIDCE UT4](INDICE.html) </th><th> UT 4: SERVICIOS DE RED </th></thead>
+<table>
 
 # CREANDO UN SERVICIO REST CON SPRING Y MAVEN
 
