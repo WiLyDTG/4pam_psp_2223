@@ -1,5 +1,10 @@
-| [INICIO](../README.md) | [ÍNIDCE UT4](INDICE.md) | UT 4: SERVICIOS DE RED |
-|--- | :-: | --: |
+<table width="100%">
+<tr>
+<td><a href="../README.html">INICIO</a></td>
+<td><a href="INDICE.html">ÍNIDCE UT4</a></td>
+<td>UT 4: SERVICIOS DE RED</td>
+</tr>
+</table>
 
 # SERVICIOS WEB: REST
 

@@ -1,4 +1,10 @@
-<table width="100%"><tr><th>[INICIO](../README.md) </th><th> [ÍNIDCE UT4](INDICE.md) </th><th> UT 4: SERVICIOS DE RED </th></tr><table>
+<table width="100%">
+<tr>
+<td><a href="../README.html">INICIO</a></td>
+<td><a href="INDICE.html">ÍNIDCE UT4</a></td>
+<td>UT 4: SERVICIOS DE RED</td>
+</tr>
+</table>
 
 # CLIENTE REST CON SPRING
 
