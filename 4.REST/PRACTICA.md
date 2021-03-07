@@ -4,7 +4,7 @@
 <td>[ÍNIDCE UT4](INDICE.md)</td>
 <td>UT 4: SERVICIOS DE RED</td>
 </tr>
-<table>
+</table>
 
 # PRÁCTICA FINAL
 Dado el ejemplo de servidor y cliente se pide extenderlo y realizar el siguiente proyecto:
