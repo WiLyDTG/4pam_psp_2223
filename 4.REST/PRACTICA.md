@@ -1,4 +1,10 @@
-<table width="100%"><tr><th>[INICIO](../README.md) </th><th> [ÍNIDCE UT4](INDICE.md) </th><th> UT 4: SERVICIOS DE RED </th></tr><table>
+<table width="100%">
+<tr>
+<td><a href="../README.md">INICIO</a></td>
+<td>[ÍNIDCE UT4](INDICE.md)</td>
+<td>UT 4: SERVICIOS DE RED</td>
+</tr>
+<table>
 
 # PRÁCTICA FINAL
 Dado el ejemplo de servidor y cliente se pide extenderlo y realizar el siguiente proyecto:
