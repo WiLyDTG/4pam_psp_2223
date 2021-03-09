@@ -1,8 +1,10 @@
+[ÍNDICE TEMA 3](I.INDICE.MD)
+
 # INTRODUCCIÓN
 
 ## A) DEFINICIÓN 
 
-Los hilos, o *Threads*, son la unidad básica de utilización de la CPU, y más concretamente de un core del procesador. Así un thread se puede definir como la secuencia de código que está en ejecución, pero embebida en el contexto de trabajo de un proceso.
+Los hilos, o *Threads*, son la unidad básica de utilización de la CPU, y más concretamente de un core del procesador. Así un thread se puede definir como la secuencia de código que está en ejecución circunscrita al contexto de trabajo de un proceso.
 
 La diferencia entre un hilo y un proceso es que los procesos son independientes, tienen su espacio de direcciones de memoria separado y compiten en igualdad de condiciones entre ellos por el uso de la CPU, tanto si comparten padre como si son independientes.
 
@@ -22,9 +24,7 @@ ventajas sobre los procesos:
 - Se consumen menos recursos en el lanzamiento y la ejecución de un hilo que en el
 lanzamiento y ejecución de un proceso.
 - Se tarda menos tiempo en crear y terminar un hilo que un proceso.
-- La conmutación entre hilos del mismo proceso es bastante más rápida que entre
-
-    procesos.
+- La conmutación entre hilos del mismo proceso es bastante más rápida que entre procesos.
 
 Es por esas razones, por lo que a los hilos se les denomina también procesos ligeros.
 

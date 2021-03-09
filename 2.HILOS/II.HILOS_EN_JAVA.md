@@ -79,5 +79,6 @@ Tabla b). Métodos de hilos de la clase Thread
 
 Un magnífico sitio donde puedes entender la programación multihilos en java es el siguiente:
 
-https://jarroba.com/multitarea-e-hilos-en-java-con-ejemplos-thread-runnable/
+[https://jarroba.com/multitarea-e-hilos-en-java-con-ejemplos-thread-runnable/](https://jarroba.com/multitarea-e-hilos-en-java-con-ejemplos-thread-runnable/)
+
 
