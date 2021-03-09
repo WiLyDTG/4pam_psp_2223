@@ -1,3 +1,7 @@
+[ÍNDICE TEMA 3](I.INDICE.md)
+
+# SINCRONIZACIÓN DE HILOS
+
 |   Estado   | Descripcion           |
 |------------|-----------------------|
 | Ejecutable (runnable) | Un hilo esta en estado ejecutable cuando se ha ejecutado el método start sobre él, siempre que no esté bloqueado ni muerto. Un hilo ejecutable puede estar ejecutandose o no dependiendo del reparto de tiempos de la CPU. |

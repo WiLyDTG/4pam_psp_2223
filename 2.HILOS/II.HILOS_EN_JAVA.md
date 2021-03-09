@@ -1,6 +1,4 @@
-| [Inicio](../README.md) |      | [Hilos](I.INDICE.MD) |
-| ---------------------- | ---- | -------------------: |
-|                        |      |                      |
+[ÍNDICE TEMA 3](I.INDICE.md)
 
 # HILOS EN JAVA
 
