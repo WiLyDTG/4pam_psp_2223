@@ -1,9 +1,7 @@
 ## CHAT TCP
-Crear un servidor de chat basico en entorno gráfico uando JAVAFX que sea capaz de atender a varios clientes a la vez, cada cliente será atendido en un hilo de ejecución; en ese hilo se recibirán sus mensajes y se enviarán al resto de miembros del chat.
+Crear un servidor de chat basico en entorno gráfico uando JAVAFX u otra librería gráfica de JAVA que sea capaz de atender a varios clientes a la vez, cada cliente será atendido en un hilo de ejecución; en ese hilo se recibirán sus mensajes y se enviarán al resto de miembros del chat.
 
-Cuando un cliente quiera desconectarse, debe escribir el carácter *.
-
-Se debe hacer un aplicación gráfica 
+Las especificacione son las siguientes:
 
 El programa servidor define el número máximo de conexiones que admite e irá controlando los clientes que actualmente estén conectados, para ello utiliza un objeto de la clase **ComunHilos** que será compartido por todos los hilos. 
 
