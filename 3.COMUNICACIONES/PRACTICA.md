@@ -1,6 +1,5 @@
 [VOLVER AL ÍNDICE](I.INDICE.md)
-
---
+-- 
 
 ## CHAT TCP
 Crear un servidor de chat basico en entorno gráfico uando JAVAFX u otra librería gráfica de JAVA que sea capaz de atender a varios clientes a la vez, cada cliente será atendido en un hilo de ejecución; en ese hilo se recibirán sus mensajes y se enviarán al resto de miembros del chat.
