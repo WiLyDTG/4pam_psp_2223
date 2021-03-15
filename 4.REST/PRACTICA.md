@@ -1,7 +1,7 @@
 # PRÁCTICA FINAL
 
 [VOLVER AL ÍNDICE](INDICE.md)
----
+----
 
 ## ENUNCIADO
 Dado el ejemplo de servidor y cliente se pide extenderlo y realizar el siguiente proyecto:
