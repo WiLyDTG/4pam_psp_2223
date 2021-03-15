@@ -1,7 +1,8 @@
-[VOLVER AL ÍNDICE](INDICE.md)
--- 
-
 # CLIENTE REST CON SPRING
+
+<hr>
+[VOLVER AL ÍNDICE](INDICE.md)
+---
 
 En el capítulo anterior, hemos visto cómo implementar nuestro servidor REST. Ahora vamos a desarrollar un cliente sencillo que envíe peticiones REST y procese los datos recibidos.
 

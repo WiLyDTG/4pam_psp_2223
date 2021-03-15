@@ -1,11 +1,10 @@
-[VOLVER AL ÍNDICE](I.INDICE.md)
--- 
-
 # SOCKETS CON JAVA
 
+<hr>
+[VOLVER AL ÍNDICE](I.INDICE.md)
+---
+
 ## INTRODUCCIÓN A LOS SOCKETS
-
-
 
 Los protocolos TCP y UDP utilizan el concepto de *socket* para favorecer un canal de  comunicación fiable entre aplicaciones o procesos. el concepto recuerda mucho a las tuberías o *pipes* vistos en el tema de procesos. 
 

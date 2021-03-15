@@ -1,7 +1,8 @@
-[VOLVER AL ÍNDICE](I.INDICE.md)
--- 
-
 # MARCO TEÓRICO
+
+<hr>
+[VOLVER AL ÍNDICE](I.INDICE.md)
+---
 
 ## Sistema Distribuido
 

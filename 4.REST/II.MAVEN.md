@@ -1,5 +1,5 @@
-[VOLVER AL ÍNDICE](INDICE.md)
--- 
-
 # INTRODUCCIÓN A MAVEN
 
+<hr>
+[VOLVER AL ÍNDICE](INDICE.md)
+---

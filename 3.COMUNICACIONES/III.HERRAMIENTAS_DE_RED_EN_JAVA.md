@@ -1,7 +1,9 @@
-[VOLVER AL ÍNDICE](I.INDICE.md)
--- 
-
 # HERRAMIENTAS DE RED EN JAVA
+
+<hr>
+[VOLVER AL ÍNDICE](I.INDICE.md)
+---
+
 Previamente a entrar en la comunicación a través de sockets con JAVA, vamos a ver algunas utilidades  que ofrecen las librerías de [**java.net**](https://docs.oracle.com/javase/8/docs/api/java/net/package-summary.html) para las comunicaciones.
 
 Las clases de uso más común son:

@@ -1,9 +1,10 @@
-[VOLVER AL ÍNDICE](I.INDICE.md)
--- 
-
 # SOCKETS UDP
 
-PROTOCOLO UDP
+<hr>
+[VOLVER AL ÍNDICE](I.INDICE.md)
+---
+
+### PROTOCOLO UDP
 
 El protocolo **UDP**, al igual que el TCP, opera en el nivel de transporte dentro de la capa de protocolos IP, y es otro de los componentes fundamentales de la pila IP. 
 

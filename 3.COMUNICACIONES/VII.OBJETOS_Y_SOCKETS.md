@@ -1,7 +1,8 @@
-[VOLVER AL ÍNDICE](I.INDICE.md)
--- 
-
 # ENVÍO DE OBJETOS A TRAVÉS DE SOCKETS
+
+<hr>
+[VOLVER AL ÍNDICE](I.INDICE.md)
+---
 
 La versatilidad de los **stream** es inmensa, pero hasta ahora sólo hemos visto la funcionalidad básica, el envío de cadenas de caracteres entre programas cliente y servidor. Pero los **stream** soportan diversos tipos de datos como son los bytes, los tipos de datos primitivos, caracteres localizados y objetos.
 

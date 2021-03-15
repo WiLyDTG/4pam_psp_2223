@@ -1,7 +1,8 @@
-[VOLVER AL ÍNDICE](INDICE.md)
--- 
-
 # SERVICIOS WEB: REST
+
+<hr>
+[VOLVER AL ÍNDICE](INDICE.md)
+---
 
 ## ¿Que es un web service?
 

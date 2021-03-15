@@ -1,5 +1,6 @@
 # PRÁCTICA FINAL
 
+<hr>
 [VOLVER AL ÍNDICE](INDICE.md)
 ---
 
