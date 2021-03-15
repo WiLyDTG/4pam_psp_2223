@@ -1,3 +1,6 @@
+[VOLVER AL ÍNDICE](I.INDICE.md)
+-- 
+
 #  HILOS Y SOCKETS
 En los contenidos vistos previamente, los programas servidores únicamente son capaces de atender a un cliente en cada momento. Esto está bien para entender el procedimiento pero lo común es que un programa servidor sea capaz de atender a varios clientes de forma simultánea. Para poder implementar esta característica, tenemos que hacer uso de la programación multi-hilo, y cada uno de los clientes que se conecte será atendido por un hilo del programa servidor.
 
