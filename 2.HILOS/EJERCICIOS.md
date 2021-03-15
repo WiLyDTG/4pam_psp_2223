@@ -39,11 +39,10 @@ Todos los hilos terminaron.
 
 Crea una aplicación con las siguientes clases:
 
-- ***Saldo**,* una clase **con un atributo que nos indica el saldo, el constructor que da
-un valor inicial al saldo. 
-La clase posee varios métodos: uno para obtener el saldo y otro para dar valor al saldo, en estos dos métodos añade un *sleep()* ****aleatorio. Y otro método que reciba una cantidad y se la añada al saldo, este método debe informar de quién añade cantidad al saldo, la cantidad que añade, el estado inicial del saldo (antes de añadir la cantidad) y el estado final del saldo después de añadir la cantidad. Define los parámetros necesarios que debe de recibir este método y defínelo como  **synchronized.**
+- ***Saldo***, una clase con un atributo que nos indica el saldo, el constructor que da un valor inicial al saldo. 
+La clase posee varios métodos: uno para obtener el saldo y otro para dar valor al saldo, en estos dos métodos añade un **sleep**() aleatorio. Y otro método que reciba una cantidad y se la añada al saldo, este método debe informar de quién añade cantidad al saldo, la cantidad que añade, el estado inicial del saldo (antes de añadir la cantidad) y el estado final del saldo después de añadir la cantidad. Define los parámetros necesarios que debe de recibir este método y defínelo como  **synchronized**.
 - **Cliente**, clase que extiende **Thread.**
-Desde el método *run()* ****hemos de usar el método de la clase *Saldo* que añade la cantidad al saldo. Averigua los parámetros que se necesita en el constructor. No debe visualizar nada en pantalla.
+Desde el método *run()* hemos de usar el método de la clase *Saldo* que añade la cantidad al saldo. Averigua los parámetros que se necesita en el constructor. No debe visualizar nada en pantalla.
 - **Main**, El programa principal crea un objeto *Saldo* asignándole un valor inicial. Visualiza el saldo inicial. Crea varios hilos que compartan ese objeto *Saldo.* A cada hilo le damos un nombre y le asignamos una cantidad. Lanzamos los hilos y esperamos a que finalicen para visualizar el saldo final del objeto *Saldo.*
 
 ## EJERCICIO 4
