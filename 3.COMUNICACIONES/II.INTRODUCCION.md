@@ -1,6 +1,5 @@
 # MARCO TEÓRICO
 
-<hr>
 [VOLVER AL ÍNDICE](I.INDICE.md)
 ---
 
