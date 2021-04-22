@@ -18,18 +18,13 @@ public class Server {
         // starts server and waits for a connection
         try {
             miSocket = new ServerSocket(port);
-            System.out.println("Server started");
+            System.out.println("Servidor iniciado");
 
-            System.out.println("Waiting for a client ...");
+            System.out.println("Esperando al cliente ...");
 
             socket = miSocket.accept();
-            System.out.println("Client accepted");
+            System.out.println("Cliente aceptado");
 
-            System.out.println("Closing connection");
-
-            // close connection
-            socket.close();
-            in.close();
         } catch (IOException i) {
             System.out.println(i);
         }
@@ -38,7 +33,7 @@ public class Server {
     public void salir() {
         // starts server and waits for a connection
         try {
-            System.out.println("Closing connection");
+            System.out.println("Cerrando connexion");
             // close connection
             socket.close();
             in.close();
@@ -59,7 +54,7 @@ public class Server {
         String line = "";
 
         // reads message from client until "Over" is sent 
-        while (!line.equals("Over")) {
+        while (!line.equals("FIN")) {
             try {
                 line = in.readUTF();
                 System.out.println(line);
