@@ -3,9 +3,9 @@ import java.io.*;
 
 public class Client
 {
-	// inicializamos socket and input-output streams y el bufferedreader
-	private Socket socket		 = null;
-	private DataInputStream input = null;
+    // inicializamos socket and input-output streams y el bufferedreader
+    private Socket socket		 = null;
+    private DataInputStream input = null;
     private DataOutputStream out	 = null;
     private BufferedReader br = null;
 
@@ -16,7 +16,7 @@ public class Client
 		try
 		{
 			socket = new Socket(address, port);
-			System.out.println("Connected");
+			System.out.println("Conectado");
 
 			// takes input from terminal
             input = new DataInputStream(System.in);
@@ -39,8 +39,8 @@ public class Client
 		// string to read message from input
 		String line = "";
 
-		// keep reading until "Over" is input
-		while (!line.equals("Over"))
+		// keep reading until "FIN" is input
+		while (!line.equals("FIN"))
 		{
 			try
 			{
