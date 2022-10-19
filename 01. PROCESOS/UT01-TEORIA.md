@@ -1,5 +1,36 @@
+- [Ejecutables. Procesos. Servicios.](#uno)
+----
+- [Estados de un proceso.](#dos)
+----
+- [Cambios de estado.](#tres)
+-----
+- [Planificación de procesos por el sistema operativo.](#cuatro)
+----
+- [Hilos. Concepto y características. Hilos frente a procesos.](#cinco)
+----
+- [Programación concurrente.](#seis)
+----
+- [Programación paralela y distribuida.](#siete)
+----
+- [Gestión de procesos.](#ocho)
+----
+- [Creación, ejecución y finalización de procesos.](#nueve)
+----
+- [Comunicación entre procesos.](#diez)
+----
+- [Sincronización entre procesos.](#once)
+----
+- [Mecanismos de comunicación y sincronización.](#doce)
+----
+- [Programación de aplicaciones multiproceso.](#trece)
+----
 
-## 1. Procesador y equipo multiproceso.
+
+
+<a href="uno"></a>
+## Ejecutables. Procesos. Servicios. 
+
+### Introducción
 Los  potencia de cálculo de los dispositivos electrónicos domésticos (PCs, tablets, teléfonos móviles , …) la proporciona el procesador.  Es el elemento fundamental, junto con la memoria principal. Cuando se estudia la estructura básica de un edispositivo electrónico, el procesador (también llamado CPU) es un elemento indispensable.
 
 ![4c4d6408acc4177086c009b02c49f702.png](_resources/4c4d6408acc4177086c009b02c49f702.png)
@@ -18,7 +49,7 @@ Una implementación todavía más potente son las "granjas de procesamiento" o r
 
 ![c85e149539a3482b15a02f9959c8d5d4.png](_resources/c85e149539a3482b15a02f9959c8d5d4.png)
 
-## Ejecutables. Procesos. Servicios. 
+### Definiciones
 Un **programa** es un conjunto de instrucciones escrita en un lenguaje de programación concreto. Una vez terminado, el programa se debe traducir a un lenguaje que el equipo donde se va a ejecutar entienda.
 Un programa ejecutable (o **ejecutable** simplemente) contiene un conjunto de instrucciones que se pueden ejecutar directamente en una máquina. Esta puede ser una máquina fisica o, en el caso del lenguaje Java, una máquina virtual . Un programa es un objeto estático , normalmente almacenado en un fichero binario en un medio de almacenamiento secundario, como , por ejemplo , un disco duro. Es, por tanto, un elemento estático. 
 
@@ -29,7 +60,6 @@ El sistema operativo es el encargado de la gestión de procesos: los crea, los e
 Para obtener información sobre los procesos que se ejecutan en un sistema operativo, podemos hacer uso de diversas órdenes. En el caso de Linux/UNIX podemos utilizar las siguientes:
 
 `ps` -  muestra por defecto el proceso actual. Si queremos información del proceso padre, podemos poner el modificador `-f`
-
 
 ![fc8e5be7b2f05fadff7b1c9f86c7a943.png](_resources/fc8e5be7b2f05fadff7b1c9f86c7a943.png)
 
@@ -52,7 +82,7 @@ También se puede mostrar en la línea de comandos mediante la orden `tasklist`,
 Otro comando muy interesante es `top`, que muestra en tiempo real los procesos en ejecución, la memoria usada, asi como el estado de cada uno.
 ![f48cc15b4ef7270d473f79119a033e6b.png](_resources/f48cc15b4ef7270d473f79119a033e6b.png)
 
-
+<a href="dos"></a>
 ## Estados de un proceso. 
 
 Una vez que se ha creado un proceso, éste puede pasar por diversos estados y cambiar de uno a otro . El sistema operativo gestiona los cambios de estado como ya hemos visto previamente, y lo hace teniendo en cuenta los distintos sucesos, eventos o llamadas al sistema que pueden ocurrir durante la vida del proceso. 
@@ -66,7 +96,7 @@ Aquí vemos tres niveles de planificación:
 Planificador a corto plazo o de procesador (CPU scheduler ) . Se realiza para procesos cargados en la memoria principal.Su objetivo es repartir el tiempo de procesador entre todos los procesos , de manera que se consiga un máximo aprovechamiento del procesador, y que los procesos se ejecuten de la manera más eficiente posible.
 Planificador a medio plazo . Gestiona el paso de procesos de la memoria principal a la secundaria (suspensión ) y viceversa (reanudación ).
 
-
+<a href="tres"></a>
 ## Cambios de estado. 
 Para entender mejor el comportamiento de un proceso en un sistema operativo se recurre a un modelo de estados sobre el que se definen transiciones. Todo ello se representa con un grafo. Linux, y en general el modelo UNIX, no es una excepción. La orden ps a nos muestra el estado de cada uno de nuestros procesos en ese momento, básicamente utilizando una letra mayúscula que indica la inicial del estado (R, S, etc). Como puedes comprobar en el man, hay media docena de estados básicos.
 
@@ -80,6 +110,7 @@ El proceso se ha creado a consecuencia de una llamada `fork()` ejecutada por el 
 
 El estado bloqueado es múltiple, ya que son muchas las situaciones de bloqueo: entrada/salida, tiempo (pause()), y otras muchas. Como puedes comprobar en el man, Linux considera otros estados análogos a S, en los que no vamos a entrar aquí y que podríamos asimilar a bloqueado.
 
+<a href="cuatro"></a>
 ## Planificación de procesos por el sistema operativo.
 La **contienda** es como se llama a la pugna que hacen los procesos listos para conquistar la CPU. Los sistemas operativos disponen de  distintos modos de realizar la asignación de la contienda. Entre otros:
 
@@ -91,6 +122,16 @@ La **contienda** es como se llama a la pugna que hacen los procesos listos para 
 
 Eso sí, al programar no podremos controlar los métodos de ordenación de la contienda. No podemos garantizar que los procesos vayan a coger la CPU en el momento que vayamos a querer.
 
+<a href="cinco"></a>
+## Hilos. Concepto y características. Hilos frente a procesos.
+
+<a href="seis"></a>
+## Programación concurrente.
+
+<a href="siete"></a>
+## Programación paralela y distribuida.
+
+<a href="ocho"></a>
 ## Gestión de procesos.
 La gestión de procesos se realiza de dos formas muy distintas en función de los dos grandes sistemas operativos: Windows y Linux.
 
@@ -123,9 +164,9 @@ En sistemas como GNU/Linux se puede modificar la prioridad con que se ejecuta un
 
 El comando `nice` permite indicar prioridades entre -20 y 19. El -20 implica que un proceso reciba la máxima prioridad, y el 19 supone asignar la mínima prioridad
 
-
+<a href="nueve"></a>
 ## Creación, ejecución y finalización de procesos. 
-Al no entrar en detalle en los sistemas opertaivos, veremos todas estas acciones con el lenguaje **C**, que, como lenguaje de bajo nivel, tiene comandos para la ejecución y control de procesos. No es el objetivo de este curso el verlos con detalle, pero si conviene conocer algunos de dichos comandos
+Al no entrar en detalle en los sistemas operativos, veremos todas estas acciones con el lenguaje **C**, que, como lenguaje de bajo nivel, tiene comandos para la ejecución y control de procesos. No es el objetivo de este curso el verlos con detalle, pero si conviene conocer algunos de dichos comandos
 
 ***EXECL***
 
@@ -268,6 +309,8 @@ Con ésta línea indicaremos que va a esperar a la finalización del proceso hij
 
 El motivo de hacer esto así es que cada proceso pueda saber si es el original (proceso padre) o el nuevo (proceso hijo) y poder hacer así cosas distintas. Si metemos el `fork()` en un `if`, como en la figura, el proceso original sigue por la parte del `else` y el nuevo proceso por el `then`. 
 
+
+<a href="diez"></a>
 ## Comunicación entre procesos.
 Las operaciones multiproceso pueden implicar que sea necesario comunicar información entre muchos procesos, lo que obliga a la necesidad de utilizar mecanismos específicos de comunicación que ofrecerá cada lenguaje o a diseñar alguno separado que evite los problemas que puedan aparecer.
 
@@ -517,6 +560,7 @@ Nosotros haremos uso del último modo `S_IFIFO` y le daremos permisos de lectura
 
  `mkfifo("FIFO2", S_IFIFO|0666)` 
 
+<a href="once"></a>
 ## Sincronización entre procesos.
 
 Cuando se lanza más de un proceso de una misma sección de código no se sabe qué proceso ejecutará qué instrucción en un cierto momento, lo que es muy peligroso:
@@ -533,15 +577,17 @@ i=i*2;
 j=j-1;
 ```
 
-
 Si dos o más procesos avanzan por esta sección de código es perfectamente posible que unas veces nuestro programa multiproceso se ejecute bien y otras no.
 
 En todo programa multiproceso pueden encontrarse estas zonas de código «peligrosas» que deben protegerse especialmente utilizando ciertos mecanismos. El nombre global para todos los lenguajes es denominar a estos trozos «secciones críticas».
 
-- Mecanismos de comunicación y sincronización. Programación de aplicaciones multiproceso. 
+
+
+<a href="doce"></a>
+## Mecanismos de comunicación y sincronización.
+Aparte de los ya descritos previamente, podemos destacar los siguientes:
 
 ### Mecanismos para controlar secciones críticas
-
 Los mecanismos más típicos son los ofrecidos por UNIX/Windows:
 
 - Semáforos.
@@ -553,3 +599,5 @@ En realidad algunos de estos mecanismos se utilizan más para intercomunicar pro
 
 Veremos la mayoría de estos sistemas en la parte de Hilos con Java.
 
+<a href="trece"></a>
+## Programación de aplicaciones multiproceso.
