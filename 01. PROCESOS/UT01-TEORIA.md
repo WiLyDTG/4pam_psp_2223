@@ -1,29 +1,16 @@
-- [Ejecutables. Procesos. Servicios.](#uno)
-----
-- [Estados de un proceso.](#dos)
-----
-- [Cambios de estado.](#tres)
------
-- [Planificación de procesos por el sistema operativo.](#cuatro)
-----
-- [Hilos. Concepto y características. Hilos frente a procesos.](#cinco)
-----
-- [Programación concurrente.](#seis)
-----
-- [Programación paralela y distribuida.](#siete)
-----
-- [Gestión de procesos.](#ocho)
-----
-- [Creación, ejecución y finalización de procesos.](#nueve)
-----
-- [Comunicación entre procesos.](#diez)
-----
-- [Sincronización entre procesos.](#once)
-----
-- [Mecanismos de comunicación y sincronización.](#doce)
-----
-- [Programación de aplicaciones multiproceso.](#trece)
-----
+### - [Ejecutables. Procesos. Servicios.](#uno)
+### - [Estados de un proceso.](#dos)
+### - [Cambios de estado.](#tres)
+### - [Planificación de procesos por el sistema operativo.](#cuatro)
+### - [Hilos. Concepto y características. Hilos frente a procesos.](#cinco)
+### - [Programación concurrente.](#seis)
+### - [Programación paralela y distribuida.](#siete)
+### - [Gestión de procesos.](#ocho)
+### - [Creación, ejecución y finalización de procesos.](#nueve)
+### - [Comunicación entre procesos.](#diez)
+### - [Sincronización entre procesos.](#once)
+### - [Mecanismos de comunicación y sincronización.](#doce)
+### - [Programación de aplicaciones multiproceso.](#trece)
 
 
 
