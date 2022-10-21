@@ -122,9 +122,18 @@ Eso sí, al programar no podremos controlar los métodos de ordenación de la co
 
 <a name="seis"></a>
 ## Programación concurrente.
+La programación concurrente es la parte de la programación que se ocupa de crear programas que pueden tener varios procesos/hilos que colaboran para ejecutar un trabajo y aprovechar al máximo el rendimiento de sistemas multinúcleo. En el caso de la programación concurrente un solo ordenador puede ejecutar varias tareas a la vez (lo que supone que tiene 2 o más núcleos).
+
+Por otro lado se denomina programación paralela a la capacidad de un núcleo de ejecutar dos o más tareas a la vez, normalmente repartiendo el tiempo de proceso entre las tareas.
 
 <a name="siete"></a>
 ## Programación paralela y distribuida.
+Dentro de la programación concurrente tenemos la paralela y la distribuida:
+
+- En general se denomina «programación paralela» a la creación de software que se ejecuta siempre en un solo ordenador (con varios núcleos o no)
+
+- Se denomina «programación distribuida» a la creación de software que se ejecuta en ordenadores distintos y que se comunican a través de una red.
+
 
 <a name="ocho"></a>
 ## Gestión de procesos.
