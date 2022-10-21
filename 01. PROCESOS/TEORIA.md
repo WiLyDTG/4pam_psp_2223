@@ -555,6 +555,89 @@ Nosotros haremos uso del último modo `S_IFIFO` y le daremos permisos de lectura
 
  `mkfifo("FIFO2", S_IFIFO|0666)` 
 
+Otro ejemplo sería una comunicación bidireccional entre dos procesos ejecutados en dos terminales.
+
+Aqui podemos ver el código de los dos:
+
+#### procesoa.c
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+int main ()
+{
+	int fifoescritura , fifolectura;
+	int bytesleidos;
+	char saludo[100];
+	char buffer[10];
+	while (1) {  
+		scanf("%s" , saludo);
+		
+		fifoescritura = open ("FIFO" , 1);			
+		printf("Mandando informacion ....\n");
+		write (fifoescritura , saludo , strlen(saludo));
+		close(fifoescritura);
+		
+		fifolectura = open ("FIFO2" , 0);
+		bytesleidos= read(fifolectura, buffer, 1);
+		while (bytesleidos!=0) {
+			printf("%1c", buffer[0]); //muestro el byte leido
+			bytesleidos= read(fifolectura, buffer, 1);//leo otro byte
+		}
+		printf("\n"); 
+		close(fifolectura);
+		
+	}
+    
+	return 0;
+}
+```
+
+#### procesob.c
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+int main (void)
+{
+  int fifolectura, fifoescritura;
+  int bytesleidos;
+  char caracter[100];
+  char buffer[10];
+		    
+    
+  while (1) {  
+    scanf("%s" , caracter);
+    fifolectura = open ( "FIFO", 0);   
+    printf("OBTENIENDO Información ... ");
+    //bucle para ir leyendo todos los caracteres uno a uno
+    bytesleidos= read(fifolectura, buffer, 1);
+    while (bytesleidos!=0) {
+      printf("%1c", buffer[0]); //muestro el byte leido
+      bytesleidos= read(fifolectura, buffer, 1);//leo otro byte
+    }
+    printf("\n");       
+    close (fifolectura);
+    
+    fifoescritura = open ( "FIFO2", 1);
+    write (fifoescritura , caracter , strlen(caracter));
+    close (fifoescritura);
+    
+  }
+  return (0);
+}
+```
+
 <a name="once"></a>
 ## Sincronización entre procesos.
 
