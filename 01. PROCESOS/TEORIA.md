@@ -578,32 +578,37 @@ Aqui podemos ver el código de los dos:
 #include <sys/stat.h>
 #include <fcntl.h>
 
-int main ()
+int main (void)
 {
-	int fifoescritura , fifolectura;
-	int bytesleidos;
-	char saludo[100];
-	char buffer[10];
-	while (1) {  
-		scanf("%s" , saludo);
-		
-		fifoescritura = open ("FIFO" , 1);			
-		printf("Mandando informacion ....\n");
-		write (fifoescritura , saludo , strlen(saludo));
-		close(fifoescritura);
-		
-		fifolectura = open ("FIFO2" , 0);
-		bytesleidos= read(fifolectura, buffer, 1);
-		while (bytesleidos!=0) {
-			printf("%1c", buffer[0]); //muestro el byte leido
-			bytesleidos= read(fifolectura, buffer, 1);//leo otro byte
-		}
-		printf("\n"); 
-		close(fifolectura);
-		
-	}
+  int fifolectura, fifoescritura;
+  int bytesleidos;
+  char mensaje[100];
+  char buffer[10];
+		    
     
-	return 0;
+  while (1) {  
+	  
+      //LEO	
+	  printf("ESPERANDO RESUPESTA\n");  
+  	  fifolectura = open ( "FIFO", 0);   
+	  printf("RESPUESTA RECIBIDA--> ");
+      bytesleidos= read(fifolectura, buffer, 1);
+      while (bytesleidos!=0) {
+          printf("%1c", buffer[0]); //muestro el byte leido
+          bytesleidos= read(fifolectura, buffer, 1);//leo otro byte
+      }
+      printf("\n");       
+      close (fifolectura);
+    
+	  printf("ENVIO DE MENSAJE\n");
+	  printf("Escribe un mensaje: \t");
+	  scanf("%s" , mensaje);
+      fifoescritura = open ( "FIFO2", 1);
+      write (fifoescritura , mensaje , strlen(mensaje));
+      close (fifoescritura);
+   
+  }
+  return (0);
 }
 ```
 
