@@ -35,3 +35,4 @@ Programación de aplicaciones multiproceso.
 | CUADERNO DE CLASE | PRUEBA ESCRITA | OBSERVACIÓN DIRECTA | EXAMEN TEST | BOLETÍN DE EJERCICIOS |
 | -- | -- | -- | -- | -- |
 | 10% | 30% | 10% | 20% | 30% | 
+| -- | -- | -- | -- | -- |
