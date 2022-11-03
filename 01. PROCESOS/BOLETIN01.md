@@ -25,16 +25,16 @@ C) Dibuja el árbol de procesos generado por el código a continuación indicand
 [SOLUCIÓN](_resources/ejercicio_c.png)
 
 D) Dibuja el árbol de procesos generado por el código a continuación indicando el fork que lo genera:
- ![c7020cb80cb73851d73d8b273fbba6f7.png](_resources/c7020cb80cb73851d73d8b273fbba6f7.png)
+![c7020cb80cb73851d73d8b273fbba6f7.png](_resources/c7020cb80cb73851d73d8b273fbba6f7.png)
+
+[SOLUCIÓN](_resources/ejercicio_d.png)
 
 E) Dibuja el árbol de procesos generado por el código a continuación indicando el fork que lo genera:
-
 ![ae8ea52443bd1d50c0e5e0bcb396b28d.png](_resources/ae8ea52443bd1d50c0e5e0bcb396b28d.png)
 
-F) Dibuja el árbol de procesos generado por el código a continuación indicando el fork que lo genera:
-![2c7d0f03754f46e739cceb8ede352d0e.png](_resources/2c7d0f03754f46e739cceb8ede352d0e.png)
+[SOLUCIÓN](_resources/ejercicio_e.png)
 
-G)	Dibuja el árbol de procesos generado por el código siguiente indicando el fork que lo genera:
+F) Dibuja el árbol de procesos generado por el código siguiente indicando el fork que lo genera:
 ![161d9e099d4b31bf29e387c450a84d33.png](_resources/161d9e099d4b31bf29e387c450a84d33.png)
 
 G)	Dibuja el árbol de procesos generado por el código siguiente indicando el fork que lo genera:
