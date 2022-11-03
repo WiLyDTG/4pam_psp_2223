@@ -32,6 +32,6 @@ Programación de aplicaciones multiproceso.
 - Depuración. 
 
 #### CRITERIOS DE CALIFICACIÓN:
-|--|--|--|--|
-| CUADERNO DE CLASE | PRUEBA ESCRITA | OBSERVACIÓN DIRECTA | EXAMEN TEST |
-|10%| 30% | 10% | 40% | 
+| CUADERNO DE CLASE | PRUEBA ESCRITA | OBSERVACIÓN DIRECTA | EXAMEN TEST | BOLETÍN DE EJERCICIOS |
+| -- | -- | -- | -- | -- |
+| 10% | 30% | 10% | 20% | 30% | 
