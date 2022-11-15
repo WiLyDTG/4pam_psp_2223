@@ -58,36 +58,6 @@ Extender la clase thread es el procedimiento más sencillo, pero no siempre es 
 
 Implementar Runnable siempre es posible, es el procedimiento más general y también el más flexible.
 
-#### EJEMPLO
-En el siguiente programa de ejemplo lanzamos dos hilos creados  en una clase Hilo, que implementa la interfaz Runnable. Al lanzar el hilo se ejecuta el método `run()`  de dicha clase, que escribe un identificador que se pasa en el constructor.
-
-```java
-package lanzahilos; 
-class Hilo implements Runnable { 
-	private final String nombre;
-	Hilo (String nombre) {
-		this.nombre = nombre;
-	}
-
-	@Override
-	public void run() {
-		System.out.printf("Hola, soy el hilo: %s.\n" , this.nombre);
-		System.out.printf("Hilo %s terminado.\n", this.nombre);
-	}
-}
-
-public class LanzaHilos {
-	public static void main (String[] args) {
-	Thread h1 = new Thread (new Hilo ("HI"));
-	Thread h2 = new Thread (new Hilo("H2"));
-	h1.start();
-	h2. start ();
-	System.out.println("Hilo principal terminado."); 
-	}
-		
-}
-```
-
 
 
 ### La clase Thread
@@ -129,9 +99,82 @@ Otros métodos son los siguientes:
 Puede encontrar más información sobre métodos, propiedades y constructores de la clase Thread en:
 [http://docs.oracle.com/javase/6/docs/api/java/lang/Thread.html](http://docs.oracle.com/javase/6/docs/api/java/lang/Thread.html)
 
+**EJEMPLO**
+
+El siguiente código define una clase Hilo1 que extiende Thread, y la clase con  programa principal debe crear y ejecutar cada hilo de manera independiente.
+
+El código podría crear de la siguiente manera:
+
+
+```java
+package ut02ejemplo01;
+
+class Hilo1 extends Thread {
+    
+    //Constructor
+    public Hilo1(String nombre) { 
+    	//mediante esta instrucción, le decimos al constructor el 
+    	//nombre del hilo usando el constructor de la clase Thread
+   		//asi podemos obtener su nombre con el método existente getName()
+       super(nombre);
+       System.out.println("CREANDO HILO: " + getName());
+    }
+
+    // metodo run
+    public void run() {
+        for (int i=0; i<5; i++) 
+            System.out.println("Hilo:" + getName() + " C = " + i);
+    }
+}
+
+public class HiloMain {
+    public static void main(String[] args) {
+        //Creamos las instancias de los tres hilos
+        Hilo1 h1 = new Hilo1("Hilo 1");
+        Hilo1 h2 = new Hilo1("Hilo 2");
+        Hilo1 h3 = new Hilo1("Hilo 3");
+            
+        //Los ejecutamos
+        h1.start();
+        h2.start();
+        h3.start();
+    }
+}
+```
+
 ### La interfaz Runnable
 
 En el lenguaje Java, tener que heredar de la clase Thread para crear clases con esta funcionalidad comporta un problema no menor, ya que Java no soporta la herencia múltiple y por tanto nos resultará imposible hacer que la nueva clase extienda ninguna otro que no sea Thread. Es decir, nos quedará muy limitada la implementación de clases hilo, usando herencia. Para evitar esta limitación podemos utilizar la Interfaz Runnable. La interfaz Runnable fuerza la existencia del método run pero no limita la herencia. De hecho, los objetos Runnable no tienen la capacidad de ejecutarse como un hilo independiente. Por eso es necesario utilizar un objeto Thread para gestionar su ejecución.
+
+#### EJEMPLO
+En el siguiente programa de ejemplo lanzamos dos hilos creados  en una clase Hilo, que implementa la interfaz Runnable. Al lanzar el hilo se ejecuta el método `run()`  de dicha clase, que escribe un identificador que se pasa en el constructor.
+
+```java
+package lanzahilos; 
+class Hilo implements Runnable { 
+	private final String nombre;
+	Hilo (String nombre) {
+		this.nombre = nombre;
+	}
+
+	@Override
+	public void run() {
+		System.out.printf("Hola, soy el hilo: %s.\n" , this.nombre);
+		System.out.printf("Hilo %s terminado.\n", this.nombre);
+	}
+}
+
+public class LanzaHilos {
+	public static void main (String[] args) {
+	Thread h1 = new Thread (new Hilo ("H1"));
+	Thread h2 = new Thread (new Hilo("H2"));
+	h1.start();
+	h2.start();
+	System.out.println("Hilo principal terminado."); 
+	}
+		
+}
+```
 
 ### La clase Object
 
@@ -155,46 +198,7 @@ public void metode(){
 }
 ```
 
-**EJEMPLO 2**
 
-   El siguiente código define una clase Hilo1 que extiende Thread
-
-```java
-public class Hilo1 extends Thread {
-	
-	//Constructor
-	public Hilo1(String nombre) { 
-    //mediante esta instrucción, le decimos al constructor el 
-    //nombre del hilo usando el constructor de la clase Thread
-    //asi podemos obtener su nombre con el método existente getName()
-		super(nombre);
-		System.out.println("CREANDO HILO: " + getName());
-	}
-
-	// metodo run
-	public void run() {
-		for (int i=0; i<5; i++) 
-			System.out.println("Hilo:" + getName() + " C = " + i);
-	}
-}
-```
-
-El programa principal debe crear y ejecutar dicho hilo de la siguiente manera:
-
-```java
-public static void main(String[] args) {
-		//Creamos las instancias de los tres hilos
-		Hilo1 h1 = new Hilo1("Hilo 1");
-		Hilo1 h2 = new Hilo1("Hilo 2");
-		Hilo1 h3 = new Hilo1("Hilo 3");
-			
-		//Los ejecutamos
-		h1.start();
-		h2.start();
-		h3.start();
-
-}
-```
 
 ### REFERENCIA
 
