@@ -8,8 +8,8 @@ En un editor de texto, por ejemplo, un hilo puede estar controlando la ortograf�
 
 La programación tradicional está diseñada para trabajar de forma secuencial, por lo que cuando termina un proceso se pone en marcha otro. Los hilos son una forma de ejecutar paralelamente diferentes partes de un mismo programa. En Java los hilos son conocidos como **threads**.
 
-> **Definición de hilo**
-Un hilo o thread es la unidad de procesamiento más pequeña que puede ser planificada por un sistema operativo.
+> **Definición de hilo**:  
+> Un hilo o thread es la unidad de procesamiento más pequeña que puede ser planificada por un sistema operativo.
 
 Los hilos nos permiten ejecutar concurrentemente diferentes tareas con un gasto mínimo de recursos puesto que todos los hilos de un mismo proceso comparten el espacio de memoria y su creación consume poco tiempo de procesador. Son entidades ligeras.
 
@@ -59,14 +59,12 @@ Extender la clase thread es el procedimiento más sencillo, pero no siempre es 
 Implementar Runnable siempre es posible, es el procedimiento más general y también el más flexible.
 
 
-
 ### La clase Thread
 En Java, un hilo se representa mediante una instancia de la clase **java.lang.thread**. Este objeto `Thread` se emplea para iniciar, detener o cancelar la ejecución del hilo de ejecución. Gracias a esta clase, podemos crear y ejecutar nuevos hilos, detenerlos, reanudar su ejecución, esperar la finalización de los hilos creados, etc. La funcionalidad de `Thread` se complementa con la funcionalidad específica de la clase objeto destinada a resolver la sincronización entre hilos. La sincronización se encapsula en la clase `Object` para que cualquier ejecución disponga siempre de los métodos y mecanismos necesarios para llevarla a cabo.  
 
 Veamos la especificación de los principales constructores y métodos de esta clase.
 
-**Constructores:**. 
-
+**Constructores:**
 - `Thread()`: reserva memoria para crear un objeto Thread.
 - `Thread(Runnable target)`: reserva memoria para la creación de un nuevo objeto de la clase Thread que gestionará la ejecución del objeto Runnable pasado por parámetro.
 - `Thread(Runnable target, String name)`: reserva memoria para la creación de un nuevo objeto de la clase Thread que gestionará la ejecución del objeto Runnable pasado por parámetro. El objeto creado podrá identificarse con el nombre pasado en el segundo parámetro.
@@ -76,128 +74,304 @@ Veamos la especificación de los principales constructores y métodos de esta cl
 - `Thread(ThreadGroup group, String name)`: crea un nuevo objeto Thread identificado por name y que pertenece al grupo de hilos concreto (group) .
 
 
-
-**Métodos:**
-
-Algunos de los métodos mas comunes sobre hilos son los que se muestran en la tabla b), donde podemos encontrar los métodos mas comunes para el manejo y a planificación de hilos.
-
-![METODOS_THREAD](IMAGENES/img_03.png)
-Tabla b). Métodos de hilos de la clase Thread
-
-Otros métodos son los siguientes:
-
+**Métodos más importantes:**
+- `static Thread currentThread()`: nos devuelve el hilo que se está ejecutando.
 - `string getName()`: devuelve el nombre del hilo.
 - `void setName(String nombre)`: asigna un nombre al hilo.
 - `int getPriority()`: nos dice la prioridad de ejecución del hilo.
 - `void setPriority(int Prioridad)`: asigna la prioridad de ejecución del hilo.
 - `ThreadGroup getThreadGroup()`: devuelve el grupo de hilos al que pertenece el hilo.
+- `boolean isAlive()`: mira si el hilo está activo. Es decir, si ha habido una llamada inicial a su método start() y todavía no ha finalizado la ejecución.
 - `boolean isDaemon()`: nos indica si el hilo es un demonio o no.
 - `void setDaemon(boolean on)`: indica si el hilo será un demonio o un hilo de usuario. Los demonios están ligados a su creador, si su creador termina su ejecución, los hijos demonios también finalizan.
+-` void join()`: Detiene la ejecución del hilo que hace la llamada y espera la finalización del hilo invocado.
 - `void join(long Millis)`: espera la finalización del hilo invocado, pero una vez pasado el tiempo del parámetro (expresado en milisegundos), se continuará la ejecución.
+- `void run()`: Representa el inicio de ejecución del hilo. Esta ejecución comienza inmediatamente después de haber llamado el método star().
+- `static void sleep(long Millis)`: detiene el hilo invocado, durante el número de milisegundos indicados en el parámetro.
+- `void start()`: pone un hilo en estado de preparado para ejecutarse.
+- `static void yield()`: hace que el hilo que se está ejecutando pase a estado de preparado. Sale del procesador.
+- `static void sleep(long Millis)`: hace que un hilo que se está ejecutando se duerma durante un tiempo, que se establece en milisegundos. El hilo no pierde ninguna propiedad de bloqueo.
 - `String toString()`: devuelve una cadena que representa el hilo, nombre prioridad y su grupo.
 
 Puede encontrar más información sobre métodos, propiedades y constructores de la clase Thread en:
 [http://docs.oracle.com/javase/6/docs/api/java/lang/Thread.html](http://docs.oracle.com/javase/6/docs/api/java/lang/Thread.html)
 
-**EJEMPLO**
+#### CREACIÓN DE HILOS MEDIANTE HERENCIA DE `THREAD`
 
-El siguiente código define una clase Hilo1 que extiende Thread, y la clase con  programa principal debe crear y ejecutar cada hilo de manera independiente.
+Para definir y crear un hilo extendiendo la clase thread, haremos lo siguiente:
 
-El código podría crear de la siguiente manera:
+ - Crear una nueva clase que herede de la clase thread.
+ - Redefinir en la nueva clase el método run() con el código asociado al hilo.
+ - Crear un objeto de la nueva clase thread. Éste será realmente el hilo.
+  - Una vez creado el hilo, para ponerlo en marcha o iniciarlo invocamos al método `start()` del objeto thread.
 
+El siguiente código define una clase Hilo1 que extiende Thread
 
 ```java
-package ut02ejemplo01;
-
-class Hilo1 extends Thread {
-    
-    //Constructor
-    public Hilo1(String nombre) { 
-    	//mediante esta instrucción, le decimos al constructor el 
-    	//nombre del hilo usando el constructor de la clase Thread
-   		//asi podemos obtener su nombre con el método existente getName()
-       super(nombre);
-       System.out.println("CREANDO HILO: " + getName());
+public class HiloBasico extends Thread {
+    public HiloBasico(String name) {
+        //mediante esta instrucción, le decimos al constructor el 
+        //nombre del hilo usando el constructor de la clase Thread
+        //asi podemos obtener su nombre con el método getName()
+        super(name);
     }
 
-    // metodo run
+    @Override
     public void run() {
-        for (int i=0; i<5; i++) 
-            System.out.println("Hilo:" + getName() + " C = " + i);
+        for (int i=0; i<5; i++) {
+          System.out.printf("[%s] -> C = %d\n",
+            Thread.currentThread().getName(),
+            i
+          );
+        }
+        System.out.printf("[%s] -> TERMINADO.\n",
+            Thread.currentThread().getName()
+        );
     }
 }
+```
 
-public class HiloMain {
+El programa principal debe crear y ejecutar dicho hilo de la siguiente manera
+
+```java
+public class HiloBasicoMain {
+    public static void main(String[] args) throws InterruptedException {
+        HiloBasico Hilo1 = new HiloBasico("Hilo 1");
+        HiloBasico Hilo2 = new HiloBasico("Hilo 2");
+        HiloBasico Hilo3 = new HiloBasico("Hilo 3");
+        Hilo1.start();
+        Hilo2.start();
+        Hilo3.start();
+        System.out.println("[Hilo main] -> TERMINADO."); 
+    }
+}
+```
+
+El resultado mostrado por pantalla será similar al siguiente:
+
+```shell
+[Hilo 1] -> C = 0
+[Hilo 1] -> C = 1
+[Hilo 1] -> C = 2
+[Hilo 1] -> C = 3
+[Hilo 1] -> C = 4
+[Hilo 1] -> TERMINADO.
+[Hilo 2] -> C = 0
+[Hilo 2] -> C = 1
+[Hilo 2] -> C = 2
+[Hilo 2] -> C = 3
+[Hilo 2] -> C = 4
+[Hilo 2] -> TERMINADO.
+[Hilo main] -> TERMINADO.
+[Hilo 3] -> C = 0
+[Hilo 3] -> C = 1
+[Hilo 3] -> C = 2
+[Hilo 3] -> C = 3
+[Hilo 3] -> C = 4
+[Hilo 3] -> TERMINADO.
+```
+
+
+
+
+### La interfaz Runnable
+
+En el lenguaje Java, tener que heredar de la clase Thread para crear clases con esta funcionalidad comporta un problema no menor, ya que Java no soporta la herencia múltiple y por tanto nos resultará imposible hacer que la nueva clase extienda ninguna otro que no sea Thread. 
+Es decir, nos quedará muy limitada la implementación de clases `Thread` usando herencia. Para evitar esta limitación podemos utilizar la Interfaz `Runnable`. La interfaz `Runnable` fuerza la existencia del método `run` pero no limita la herencia. De hecho, los objetos Runnable no tienen la capacidad de ejecutarse como un hilo independiente. Por eso es necesario utilizar un objeto `Thread` para gestionar su ejecución.
+
+En el siguiente ejemplos vemos la creación de objetos mediante el uso de esta interfaz: En primer lugar creamos la clase que va a implementar cada hilo. Aquí no podemos usar los métodos de la clase Thread, por lo que para ponerle nombre al hilo debemos crear una constante de la clase para almacenarlo. 
+
+```java
+class HiloRunnable implements Runnable {
+
+    private final String nombre;
+    
+    HiloRunnable (String nombre) {
+        this.nombre = nombre;
+        System.out.printf ("[%s] creado\n",
+            this.nombre
+        );
+    }
+
+    @Override
+    public void run() {
+        for (int i=0; i<5; i++) {
+            System.out.printf("[%s] -> C = %d\n", 
+                this.nombre,
+                i
+            );
+        }
+        System.out.printf("[%s] -> TERMINADO.\n",
+            this.nombre
+        ); 
+    }
+
+}
+```
+
+La aplicación principal lanza tres hilos diferentes:
+
+```java
+public class HiloRunnableMain {
     public static void main(String[] args) {
         //Creamos las instancias de los tres hilos
-        Hilo1 h1 = new Hilo1("Hilo 1");
-        Hilo1 h2 = new Hilo1("Hilo 2");
-        Hilo1 h3 = new Hilo1("Hilo 3");
+        Thread h1 = new Thread(
+            new HiloRunnable("Hilo 1")
+        );
+        Thread h2 = new Thread(
+            new HiloRunnable("Hilo 2")
+        );
+        Thread h3 = new Thread(
+            new HiloRunnable("Hilo 3")
+        );
             
         //Los ejecutamos
         h1.start();
         h2.start();
         h3.start();
+        System.out.println("[Hilo main] -> TERMINADO."); 
+    
+    }
+
+}
+```
+
+El resultado mostrado por pantalla será similar al siguiente:
+
+```shell
+[Hilo 1] creado
+[Hilo 2] creado
+[Hilo 3] creado
+[Hilo 1] -> C = 0
+[Hilo 1] -> C = 1
+[Hilo 1] -> C = 2
+[Hilo 1] -> C = 3
+[Hilo 1] -> C = 4
+[Hilo 1] -> TERMINADO.
+[Hilo main] -> TERMINADO.
+[Hilo 3] -> C = 0
+[Hilo 3] -> C = 1
+[Hilo 3] -> C = 2
+[Hilo 3] -> C = 3
+[Hilo 3] -> C = 4
+[Hilo 3] -> TERMINADO.
+[Hilo 2] -> C = 0
+[Hilo 2] -> C = 1
+[Hilo 2] -> C = 2
+[Hilo 2] -> C = 3
+[Hilo 2] -> C = 4
+[Hilo 2] -> TERMINADO.
+```
+
+
+
+### EJEMPLO DE MÉTODOS:  `join`
+
+Vamos a probar uno de los métodos que ofrece la clase Thread: `join`.  Para ello vamos a crear un ejemplo muy sencillo que  lanza dos hilos. Cada uno de ellos hace pausas de duración aleatoria de ente 10 y 500 milis, utilizando el método sleep de la clase Thread.
+
+
+```java
+import java.util.Random;
+
+class HiloJoin implements Runnable { 
+  private final String nombre;
+  
+  HiloJoin(String nombre) { 
+   this.nombre = nombre;
+  }
+  
+  @Override
+  public void run () {
+    System.out.printf("[%s] CREADO.\n", this.nombre); 
+	Random r = new Random();
+    for (int i =0; i<5; i++) {
+      int pausa = 10 + r.nextInt(500-10); 
+		  System.out.printf("[%s] hace pausa de %d ms.\n", this.nombre, pausa ); 
+		  try {
+			  Thread.sleep (pausa );
+      } 
+		  catch (InterruptedException e) {
+        System.out.printf ("[%s] interrumpido.\n" , this.nombre ); 
+      }
+    }
+    System.out.printf("[%s] terminado.\n", this.nombre); 
+  }
+}
+```
+
+Los dos métodos anteriores pausan la ejecución del hilo, y durante ese periodo de tiempo se podría interrumpir, cosa que debe ser controlada con un `try-catch` tal y como veremos en el ejemplo posterior. 
+
+El hilo principal utiliza el método `join` para esperar a que terminen los dos hilos lanzados, por lo que siempre terminará el último. 
+ 
+```java 
+public class HiloJoinMain {
+    public static void  main (String[] args) {
+        Thread h1 = new Thread(new HiloJoin("Hilo 1")); 
+        Thread h2 = new Thread(new HiloJoin("Hilo 2")); 
+        h1.start();
+        h2.start();
+        try {
+            h1.join();
+            h2.join();
+        }
+        catch (InterruptedException e) {
+            System.out.println("[Hilo main] terminado.");
+        }             
+        System.out.println("[Hilo main] terminado.");
     }
 }
 ```
 
-### La interfaz Runnable
+El método `join` debe ser controlado mediante un `try-catch` por nuestra parte, pues alguno de los procesos a los que espera que finalicen puede interrumpirse y la aplicación principal debe dar respuesta a ese problema.
 
-En el lenguaje Java, tener que heredar de la clase Thread para crear clases con esta funcionalidad comporta un problema no menor, ya que Java no soporta la herencia múltiple y por tanto nos resultará imposible hacer que la nueva clase extienda ninguna otro que no sea Thread. Es decir, nos quedará muy limitada la implementación de clases hilo, usando herencia. Para evitar esta limitación podemos utilizar la Interfaz Runnable. La interfaz Runnable fuerza la existencia del método run pero no limita la herencia. De hecho, los objetos Runnable no tienen la capacidad de ejecutarse como un hilo independiente. Por eso es necesario utilizar un objeto Thread para gestionar su ejecución.
+El resultado por consola será parecido al siguiente:
 
-#### EJEMPLO
-En el siguiente programa de ejemplo lanzamos dos hilos creados  en una clase Hilo, que implementa la interfaz Runnable. Al lanzar el hilo se ejecuta el método `run()`  de dicha clase, que escribe un identificador que se pasa en el constructor.
-
-```java
-package lanzahilos; 
-class Hilo implements Runnable { 
-	private final String nombre;
-	Hilo (String nombre) {
-		this.nombre = nombre;
-	}
-
-	@Override
-	public void run() {
-		System.out.printf("Hola, soy el hilo: %s.\n" , this.nombre);
-		System.out.printf("Hilo %s terminado.\n", this.nombre);
-	}
-}
-
-public class LanzaHilos {
-	public static void main (String[] args) {
-	Thread h1 = new Thread (new Hilo ("H1"));
-	Thread h2 = new Thread (new Hilo("H2"));
-	h1.start();
-	h2.start();
-	System.out.println("Hilo principal terminado."); 
-	}
-		
-}
+```shell
+[Hilo 1] CREADO.  
+[Hilo 2] CREADO.  
+[Hilo 1] hace pausa de 219 ms. 
+[Hilo 2] hace pausa de 138 ms. 
+[Hilo 2] hace pausa de 326 ms. 
+[Hilo 1] hace pausa de 388 ms.
+[Hilo 2] hace pausa de 25 ms.
+[Hilo 2] hace pausa de 157 ms.
+[Hilo 1] hace pausa de 346 ms.
+[Hilo 2] hace pausa de 351 ms.
+[Hilo 1] hace pausa de 38 ms.
+[Hilo 1] hace pausa de 200 ms.
+[Hilo 2] terminado.
+[Hilo 1] terminado.
+[Hilo main] terminado.
 ```
 
-### La clase Object
+El resultado variará en cada ejecución, pero la última linea siempre será `[Hilo main] terminado.`
 
-La clase Object es muy extensa. Aquí sólo nos centraremos en los métodos que nos proporciona, relacionados con los hilos. Son métodos que nos permiten la comunicación y manipulación de hilos. Esta clase, jerárquicamente, se encuentra en la parte superior de todas las clases de Java, por tanto cada clase de Java hereda su funcionalidad. Cada nueva clase incluye los siguientes métodos:
-- `wait()`: este método hace que un hilo de ejecución pase a un estado de espera hasta que se le notifique que puede continuar la ejecución.
-- `notify()`: es el método encargado de notificar a un hilo que se encuentra a la espera de que puede continuar la ejecución.
-- `notifyAll()`: funciona de forma similar a notify(), pero notifica que pueden continuar la ejecución todos los hilos en espera.
 
-Estos métodos son utilizados cuando ejecutamos la programación concurrente de diferentes hilos (programación multihilo), y sirven para hacer esperar un hilo que otro acabe de realizar alguna tarea. También que, una vez terminada esta tarea, notifique al hilo a la espera de que puede continuar su ejecución. Estos métodos únicamente pueden ser llamados dentro de métodos sincronizados:
 
-```java
-synchronized public void metodeSincronizado(){
-   //...
-}
-O dentro de blogs de código sincronizados:
-public void metode(){
-   synchronized (this) {
-      //....
-     }
-//...
-}
+
+### EJEMPLO: Interrumpir un hilo
+
+Las interrupciones son una característica muy básica para la interacción de subprocesos que se puede entender como un simple mensaje de interrupción que un subproceso envía a otro subproceso. El subproceso receptor puede preguntar explícitamente si ha sido interrumpido llamando al método Thread.interrupted() o si se interrumpe implícitamente mientras pasa su tiempo dentro de un método como sleep() que lanza una excepción en caso de una interrupción.
+
+Echemos un vistazo más de cerca a las interrupciones con el siguiente ejemplo de código:
+
+En primer lugar hemos creado una clase que implementa Runnable. Al ser lanzado, quedará  inactivo (sleep) durante mucho tiempo (alrededor de 290.000 años) si nada lo interrumpe. Es por ello que debemos comprobar si el hilo queda interrumpido por haber recibido una `InterruptedException` mediante un `try -> catch`. Luego queda en un bucle ocioso hasta que vuelve a recibir una interrupción y muestra el segundo mensaje.
+
+
+Dentro del método principal, primero lanzamos un nuevo hilo. Para terminar el programa antes de que pasen los 290.000 años , interrumpimos `miHilo` llamando a interrupt() en su variable de instancia. Esto provoca una InterruptedException dentro de la llamada de sleep() y se muestra en consola como "<- ¡Interrumpido por una excepción!". Habiendo registrado la excepción, el subproceso hace una espera ocupada hasta que se establece el indicador interrumpido en el subproceso. Esto nuevamente se establece desde el hilo principal llamando a interrupt() en la variable de instancia del hilo. 
+
+
+
+En general, veremos en consola un resultado similar al siguiente:
+
+```shell
+[main] ← Durmiendo en hilo main durante 5s...
+[main] ← Interrumpiendo miHilo.
+[main] ← Durmiendo en hilo main durante 5s.
+[miHilo] ← ¡Interrumpido por una exception!
+[main] ← Interrumpiendo miHilo.
+[miHilo] ← Interrumpido por segunda vez.
 ```
-
 
 
 ### REFERENCIA
