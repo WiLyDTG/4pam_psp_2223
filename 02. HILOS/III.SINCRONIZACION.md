@@ -50,23 +50,25 @@ class HiloA extends Thread {
   private Contador contador;
   
   public HiloA (String n, Contador C) {
-    setName (n) ;
+    super(n) ;
     contador = C;
   }
   
   public void run () {
 		for (int j = 0 ; j < 300; j++) {
-				contador.incrementa (); //incrementa el contador
-				try {
-						sleep(100) ;
-					}
-					catch (InterruptedException e) {}
-				}
+			contador.incrementa (); //incrementa el contador
+			try {
+				sleep(100) ;
 			}
-			System.out.println( getName() + "Contador vale " + 
-			    contador.valor());
+			catch (InterruptedException e) {}
+		}
+		System.out.printf ("[%s] Contador vale %d\n" ,
+			Thread.currentThread().getName(),
+			contador.valor()
+		);
   }
 }
+
 ```
 
 Ahora creamos HiloB
@@ -77,25 +79,24 @@ class HiloB extends Thread {
   private Contador contador;
   
   public HiloB (String n, Contador C) {
-    setName (n) ;
+    super(n) ;
     contador = C;
   }
   
   public void run () {
 		for (int j = 0 ; j < 300; j++) {
-				contador.decrementa (); //incrementa el contador
-				try {
-						sleep(100) ;
-					}
-					catch (InterruptedException e) {}
-				}
+			contador.decrementa (); //decrementa el contador
+			try {
+				sleep(100) ;
 			}
-			System.out.println( getName() + "Contador vale " + 
-			    contador.valor());
+			catch (InterruptedException e) {}
+		}
+		System.out.printf ("[%s] Contador vale %d\n" ,
+			Thread.currentThread().getName(),
+			contador.valor()
+		);
   }
 }
-		
-
 ```
 
 Únicamente nos falta crear la clase donde desarrollar el método **main()**, en la que inicialmente vamos a crear un objeto de la clase Contador y le vamos a asignar un valor inicial de 100. A continuación, crearemos los dos hilos (A y B) pasándoles dos parámetros: un nombre y el objeto Contador. Y por último los lanzaremos:
