@@ -102,15 +102,22 @@ class HiloB extends Thread {
 Únicamente nos falta crear la clase donde desarrollar el método **main()**, en la que inicialmente vamos a crear un objeto de la clase Contador y le vamos a asignar un valor inicial de 100. A continuación, crearemos los dos hilos (A y B) pasándoles dos parámetros: un nombre y el objeto Contador. Y por último los lanzaremos:
 
 ```java
-public class CompartirInf1 {
-  
-  public static void main (String[] args)
-    Contador cont = new Contador (100) ;
-	   HiloA a = new HiloA("HiloA", cont) ;
-	   HiloB b = new HiloB("HiloB", cont) ;
-	   a.start() ;
-       b.start() ;
- }
+public class ProblemaAMain {
+    public static void main (String[] args) {
+        Contador cont = new Contador (100) ;
+        final HiloA a = new HiloA("Hilo A", cont) ;
+        final HiloB b = new HiloB("Hilo B", cont) ;
+        a.start();
+        b.start();
+        
+        try {
+            a.join();
+            b.join();
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
