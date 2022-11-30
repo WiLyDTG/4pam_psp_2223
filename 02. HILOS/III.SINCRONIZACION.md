@@ -1,6 +1,6 @@
 [ÍNDICE TEMA 3](I.INDICE.md)
 
-# III. COMUNICACION Y SINCRONIZACION DE HILOS
+# IIII. COMUNICACION Y SINCRONIZACION DE HILOS
 
 ## INTRODUCCIÓN
 
@@ -134,6 +134,7 @@ HiloB contador vale 100
 ```
 
 Este problema en intolerable en programación, por lo que hemos de articular mecanismos para que los dos hilos sean capaces de acceder de manera coordinada (sincronada) al objeto compartido.
+
 
 ## Sección crítica
 
