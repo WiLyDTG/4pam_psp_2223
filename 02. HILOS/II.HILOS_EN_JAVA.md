@@ -44,9 +44,9 @@ Los hilos o threads se pueden implementar o definir de dos formas:
 
 En ambos casos, se debe proporcionar una definición del método `run()`, ya que este método es el que contiene el código que ejecutará el hilo, es decir, su comportamiento.
 
-Extender la clase thread es el procedimiento más sencillo, pero no siempre es posible. Si la clase ya hereda de alguna otra clase padre, no será posible heredar también de la clase thread (recuerda que Java no permite la herencia múltiple), por lo que habrá que recurrir al otro procedimiento.
+Extender la clase `Thread` es el procedimiento más sencillo, pero no siempre es posible. Si la clase ya hereda de alguna otra clase padre, no será posible heredar también de la clase Thread` (recuerda que Java no permite la herencia múltiple), por lo que habrá que recurrir al otro procedimiento.
 
-Implementar Runnable siempre es posible, es el procedimiento más general y también el más flexible.
+Implementar `Runnable` siempre es posible, es el procedimiento más general y también el más flexible.
 
 
 ### La clase Thread
@@ -257,13 +257,7 @@ El resultado mostrado por pantalla será similar al siguiente:
 
 ### EJEMPLO DE MÉTODOS:  `join`
 
-```java
-
-c
-
 Vamos a probar uno de los métodos que ofrece la clase Thread: `join`.  Para ello vamos a crear un ejemplo muy sencillo que  lanza dos hilos. Cada uno de ellos hace pausas de duración aleatoria de ente 10 y 500 milis, utilizando el método sleep de la clase Thread.
-
-
 
 
 ```java
@@ -295,7 +289,7 @@ class HiloJoin implements Runnable {
 }
 ```
 
-Los dos métodos anteriores pausan la ejecución del hilo, y durante ese periodo de tiempo se podría interrumpir, cosa que debe ser controlada con un `try-catch` tal y como veremos en el ejemplo posterior. 
+Al llamar a `sleep` la ejecución del hilo se ve detenida, y durante ese periodo de tiempo se podría interrumpir, cosa que debe ser controlada con un `try-catch` tal y como veremos en el ejemplo posterior. 
 
 El hilo principal utiliza el método `join` para esperar a que terminen los dos hilos lanzados, por lo que siempre terminará el último. 
  
@@ -344,16 +338,65 @@ El resultado variará en cada ejecución, pero la última linea siempre será `[
 
 
 
-
-
 ### EJEMPLO: Interrumpir un hilo
 
 Las interrupciones son una característica muy básica para la interacción de subprocesos que se puede entender como un simple mensaje de interrupción que un subproceso envía a otro subproceso. El subproceso receptor puede preguntar explícitamente si ha sido interrumpido llamando al método Thread.interrupted() o si se interrumpe implícitamente mientras pasa su tiempo dentro de un método como sleep() que lanza una excepción en caso de una interrupción.
 
 Echemos un vistazo más de cerca a las interrupciones con el siguiente ejemplo de código:
 
+```java
+package hilos;
+
+public class HiloInterrupt implements Runnable {
+    public void run() {
+        try{
+            //Esperamos 290.00 años ;)
+            Thread.sleep(Long.MAX_VALUE);
+        }catch(InterruptedException e){
+            System.out.printf("[%s] ← ¡Interrumpido por una exception!\n",
+                    Thread.currentThread().getName()
+            );
+        }
+        while(!Thread.interrupted()){
+            // no hacemos nada
+        }
+        System.out.printf("[%s] ← Interrumpido por segunda vez.\n",
+                Thread.currentThread().getName()
+        );
+    }
+}
+```
+
 En primer lugar hemos creado una clase que implementa Runnable. Al ser lanzado, quedará  inactivo (sleep) durante mucho tiempo (alrededor de 290.000 años) si nada lo interrumpe. Es por ello que debemos comprobar si el hilo queda interrumpido por haber recibido una `InterruptedException` mediante un `try -> catch`. Luego queda en un bucle ocioso hasta que vuelve a recibir una interrupción y muestra el segundo mensaje.
 
+A continuación vemos el código que incluye el Main:
+
+```java
+package hilos;
+
+public class HiloInterruptMain {
+    public static void main(String[] args) throws InterruptedException {
+        Thread miHilo = new Thread(new HiloInterrupt(), "miHilo");
+        miHilo.start();
+        System.out.printf("[%s] ← Durmiendo en hilo main durante 5s...\n",
+                Thread.currentThread().getName()
+        );
+        Thread.sleep(5000);
+        System.out.printf("[%s] ← Interrumpiendo miHilo.\n",
+                Thread.currentThread().getName()
+        );
+        miHilo.interrupt();
+        System.out.printf("[%s] ← Durmiendo en hilo main durante 5s.\n",
+                Thread.currentThread().getName()
+        );
+        Thread.sleep(5000);
+        System.out.printf("[%s] ← Interrumpiendo miHilo.\n",
+                Thread.currentThread().getName()
+        );
+        miHilo.interrupt();
+    }
+}
+```
 
 Dentro del método principal, primero lanzamos un nuevo hilo. Para terminar el programa antes de que pasen los 290.000 años , interrumpimos `miHilo` llamando a interrupt() en su variable de instancia. Esto provoca una InterruptedException dentro de la llamada de sleep() y se muestra en consola como "<- ¡Interrumpido por una excepción!". Habiendo registrado la excepción, el subproceso hace una espera ocupada hasta que se establece el indicador interrumpido en el subproceso. Esto nuevamente se establece desde el hilo principal llamando a interrupt() en la variable de instancia del hilo. 
 
@@ -373,9 +416,7 @@ En general, veremos en consola un resultado similar al siguiente:
 
 ### REFERENCIA
 
-
-Un magnífico sitio donde puedes entender la programación multihilos en java es el siguiente:
-
-[https://jarroba.com/multitarea-e-hilos-en-java-con-ejemplos-thread-runnable/](https://jarroba.com/multitarea-e-hilos-en-java-con-ejemplos-thread-runnable/)
+- https://ioc.xtec.cat/materials/FP/Recursos/fp_dam_m09_/web/fp_dam_m09_htmlindex/WebContent/u1/a1/continguts.html
+- [https://jarroba.com/multitarea-e-hilos-en-java-con-ejemplos-thread-runnable/](https://jarroba.com/multitarea-e-hilos-en-java-con-ejemplos-thread-runnable/)
 
 
