@@ -257,7 +257,13 @@ El resultado mostrado por pantalla será similar al siguiente:
 
 ### EJEMPLO DE MÉTODOS:  `join`
 
+```java
+
+c
+
 Vamos a probar uno de los métodos que ofrece la clase Thread: `join`.  Para ello vamos a crear un ejemplo muy sencillo que  lanza dos hilos. Cada uno de ellos hace pausas de duración aleatoria de ente 10 y 500 milis, utilizando el método sleep de la clase Thread.
+
+
 
 
 ```java
@@ -335,6 +341,7 @@ El resultado por consola será parecido al siguiente:
 ```
 
 El resultado variará en cada ejecución, pero la última linea siempre será `[Hilo main] terminado.`
+
 
 
 

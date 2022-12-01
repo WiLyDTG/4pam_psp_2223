@@ -350,5 +350,22 @@ Para evitar esta situación la operación de retirar dinero, método RetirarDine
 
 Sincronizar métodos permite prevenir inconsistencias cuando un objeto es accesible desde distintos hilos: si un objeto es visible para más de un hilo, todas las lecturas o escrituras de las variables de ese objeto se realizan a través de métodos sincronizados.
 
+### OPERACIONES ATÓMICAS
+
+En la sección anterior hemos visto cómo sincronizar el acceso a algún recurso complejo cuando muchos subprocesos concurrentes tienen que ejecutar una cierta parte del código, pero solo un subproceso debe ejecutarlo en cada momento. También hemos visto que si no sincronizamos el acceso a los recursos comunes, las operaciones sobre estos recursos se intercalan y pueden provocar un estado inconsistente.
+
+El lenguaje Java proporciona algunas operaciones básicas que son atómicas y que, por lo tanto, se pueden usar para asegurarse de que los subprocesos simultáneos siempre vean el mismo valor:
+
+- Operaciones de lectura y escritura para referenciar variables y variables primitivas (excepto largas y dobles).
+- Operaciones de lectura y escritura para todas las variables declaradas como volátiles.
+
+Para comprender esto con más detalle, supongamos que tenemos un HashMap lleno de propiedades que se leen de un archivo y un montón de subprocesos que funcionan con estas propiedades. Está claro que necesitamos algún tipo de sincronización aquí, ya que el proceso de leer el archivo y actualizar el Mapa cuesta tiempo y durante este tiempo se ejecutan otros hilos.
+
+No podemos compartir fácilmente una instancia de este Mapa entre todos los subprocesos y trabajar en este Mapa durante el proceso de actualización. Esto conduciría a un estado inconsistente del Mapa, que es leído por los subprocesos de acceso. Con el conocimiento de la última sección, por supuesto, podríamos usar un bloque sincronizado alrededor de cada acceso (lectura/escritura) del mapa para garantizar que todos los subprocesos solo vean un estado y no un mapa parcialmente actualizado. Pero esto conduce a problemas de rendimiento si los subprocesos simultáneos tienen que leer muy a menudo desde el Mapa.
+
+Clonar el Mapa para cada subproceso dentro de un bloque sincronizado y dejar que cada subproceso funcione en una copia separada también sería una solución. Pero cada subproceso tendría que pedir de vez en cuando una copia actualizada y la copia ocupa memoria, lo que podría no ser factible en todos los casos. Pero hay una solución más simple.
+
+Como sabemos que las operaciones de escritura en una referencia son atómicas, podemos crear un nuevo mapa cada vez que leemos el archivo y actualizamos la referencia que se comparte entre los subprocesos en una operación atómica. En esta implementación, los subprocesos de trabajo nunca leerán un mapa inconsistente ya que el mapa se actualiza con una operación atómica:
+
 Para más información sobre join() puedes consultar el siguiente enlace:
 [https://www.geeksforgeeks.org/java-concurrency-yield-sleep-and-join-methods/](https://www.geeksforgeeks.org/java-concurrency-yield-sleep-and-join-methods/)
