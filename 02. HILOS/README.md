@@ -34,10 +34,14 @@ clases.
 12. Documentación.
 13. Depuración. 
 
-
+## HERRAMIENTAS DE CALIFICACIÓN
+- **PARTICIPACIÓN EN CLASE**: se revisará el trabajo del alumno mediante la revisión de sus apuntes personales, intervenciones, observación directa, ...
+- **CUESTIONARIO**: 
+- **EJERCICIOS DE CLASE**: El profesor comprobará por observación directa si el alumno ha realizado los ejercicios propuestos en clase.
+- **PRÁCTICAS**: El profesor revisará la entrega de los trabajos realizados por el alumnado en el boletín de EJERCICIOS CORRESPONDIENTES.
 
 ## CALIFICACIÓN:
-| CUADERNO DE CLASE | CUESTIONARIO | EJERCICIOS DE CLASE | PRÁCTICAS |
+|PARTICIPACIÓN EN CLASE | CUESTIONARIO | EJERCICIOS DE CLASE | PRÁCTICAS |
 |:--:|:--:|:--:|:--:|:--:|
 | 10% | 20% | 20% | 50% |
 

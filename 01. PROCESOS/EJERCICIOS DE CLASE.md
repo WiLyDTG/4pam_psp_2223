@@ -1,3 +1,4 @@
+
 A)	Crear un programa en C que genere la siguiente estructura de procesos: 
 ![775b95fb85944e49839a5f0896ca263c.png](_resources/775b95fb85944e49839a5f0896ca263c.png)
 
