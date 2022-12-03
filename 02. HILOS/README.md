@@ -19,29 +19,25 @@ h) Se han depurado y documentado los programas desarrollados.
 ## CONTENIDOS:
 Programación multihilo:
 
-- Recursos compartidos por los hilos.
-- Estados de un hilo. Cambios de estado.
-- Elementos relacionados con la programación de hilos. Librerías y
+1. Recursos compartidos por los hilos.
+2. Estados de un hilo. Cambios de estado.
+3. Elementos relacionados con la programación de hilos. Librerías y
 clases.
-- Gestión de hilos.
-- Creación, inicio y finalización de hilos.
-- Sincronización de hilos.
-- Compartición de información entre hilos. Intercambio.
-- Mecanismos de comunicación y sincronización.
-- Prioridades de los hilos.
-- Gestión de prioridades. 
-- Programación de aplicaciones multihilo.
-- Documentación.
-- Depuración. 
+4. Gestión de hilos.
+5. Creación, inicio y finalización de hilos.
+6. Sincronización de hilos.
+7. Compartición de información entre hilos. Intercambio.
+8. Mecanismos de comunicación y sincronización.
+9. Prioridades de los hilos.
+10. Gestión de prioridades. 
+11. Programación de aplicaciones multihilo.
+12. Documentación.
+13. Depuración. 
 
 
 
-## CALFICACIÓN:
-|CONTENIDO| CUADERNO DE CLASE | CUESTIONARIO | EJERCICIOS DE CLASE | PRÁCTICAS |
+## CALIFICACIÓN:
+| CUADERNO DE CLASE | CUESTIONARIO | EJERCICIOS DE CLASE | PRÁCTICAS |
 |:--:|:--:|:--:|:--:|:--:|
-|1|  |  |  |  |
-|2|  |  |  |  |
-|3|  |  |  |  |
-|4|  |  |  |  |
-|5|  |  |  |  |
-|6|  |  |  |  |
+| 10% | 20% | 20% | 50% |
+
