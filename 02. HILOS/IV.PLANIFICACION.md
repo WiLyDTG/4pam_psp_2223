@@ -1,4 +1,4 @@
-# III. PLANIFICACIÓN DE HILOS
+# IV. PLANIFICACIÓN DE HILOS
 
 Una vez que ya conocemos cómo pueden compartir información los hilos a través de los bloques y métodos sincronizados, vamos a estudiar cómo podemos activar o desactivar hilos de manera organizada en nuestro código, realizando una planificación efectiva de los mismos.
 
@@ -35,7 +35,12 @@ public void metode(){
 }
 ```
 
-Como ejemplo práctico, vamos a ver un programa que implementa dos hilos que imprimen un string de un objeto compartido.
+> ¿Cuándo utilizar **notifyAll()** y **notify()**?
+Debe utilizarse **notify()** cuando se quiere que continúe solo un hilo. Si no, debería utilizarse **notifyAll()**. Si están bien programados, los hilos reanudados volverán a comprobar si pueden continuar su ejecución y, si no es así, volverán a ejecutar **wait()** para esperar una nueva ocasión. 
+Por tanto, no debería suponer ningún problema que más de un hilo se reanude con **notifyAll()**. Pero que esto sea aceptable o no depende del programa. El uso de **notify()** en lugar de **notifyAll( )** podría hacer que solo se reanude un hilo que, una vez verificado el estado, decida que no puede continuar y haga **wait()**, mientras que otro de los hilos podría haber continuado. Esto podría incluso provocar que uno o más hilos queden indefinidamente a la espera para continuar de una notificación que no llega nunca. Esto no es un interbloqueo o **deadlock**. De hecho, solo hay un objeto de bloqueo implicado. Los hilos no están a la espera de que se libere
+un objeto de bloqueo, sino de una notificación para seguir que no llega nunca.
+
+Como ejemplo práctico, vamos a ver un programa que implementa dos hilos que muestran por pantalla un string de un objeto compartido.
 
 Es una simple clase que muestra una cadena que recibe como parámetro. Vamos a crear a continuación una clase que extiende Thread y que crea un objeto de esta clase y llama diez veces al método Muestra para mostrar la cadena 10 veces por pantalla.
 
@@ -77,8 +82,8 @@ public class  BloqueoHilos {
     {
       {
         ObjetoCompartido com = new ObjetoCompartido();
-        HiloCadena a = new HiloCadena (com, "A");
-        HiloCadena b = new HiloCadena (com, "B");
+        HiloCadena a = new HiloCadena (com, "J");
+        HiloCadena b = new HiloCadena (com, "K");
         a.start(); 
         b.start();
       } 
@@ -104,17 +109,17 @@ public void run() {
             objeto.Muestra(cad);
             objeto.notify(); //aviso que ya he usado el objeto
             try {
-							//el hilo queda a la espera de que alguien lo despierte 
+			  //el hilo queda a la espera de que alguien lo despierte 
               objeto.wait(); 
             }
             catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }//for
+        }
         objeto.notify(); 
     } //fin del bloque synchronized
     System.out.printf("\n[%s] finalizado" , cad);
-}//run
+}
 ```
 
 El resultado con este código será el siguiente:
@@ -284,4 +289,15 @@ El resultado será el siguiente:
 
 ![38cfdb1add2e846da768749d33b3a0e3.png](IMAGENES/38cfdb1add2e846da768749d33b3a0e3.png)
 
-Como vemos, los mecanismos de sincronización garantizan la exclusión mutua en el acceso a los recursos compartidos por varios hilos
+Como vemos, los mecanismos de sincronización garantizan la exclusión mutua en el acceso a los recursos compartidos por varios hilos.
+
+## EJERCICIO PROPUESTO
+Crear una aplicación en JAVA que simule  un sistema que controla el paso de personas por un puente, siempre en la misma dirección, y que debe cumplir las siguientes restricciones:
+- No pueden pasar más de tres personas a la vez.
+- No puede haber más de 200 kg de peso en ningún momento. 
+- Las personas serán programadas como hilos
+- El tiempo entre la llegada de dos personas es aleatorio entre 1 y 30 s, y para atravesar el puente aleatorio, entre 10 y 50 s.
+- Las personas tienen un peso aleatorio de entre 40 y 120 kg.
+- En un objeto de la clase Puente se guarda el estado compartido por todos los hilos: el número de personas que están cruzando el puente y su peso total. Este objeto se pasa a todos los hilos de la clase Persona, en su constructor. Estos lo utilizan como como objeto de bloqueo. En esta clase, y esto es importante, se almacena este objeto en una variable de instancia de tipo `final`. Todos los métodos de esta clase que consultan o modifican su estado son `synchronized`. 
+
+Para simplificar la programación, tiene un método autorizacionPaso que verifica SI se cumplen las condiciones para que una persona entre en el puente y, si es así, actualiza su estado. Se invoca estel método en un bloque sincronizado sobre el propio objeto. El método terminaPaso también se invoca en un bloque sincronizado sobre el propio objeto, y después se llama a notifyAll, para dar la opción de entrar al puente a personas que estén esperando. 
