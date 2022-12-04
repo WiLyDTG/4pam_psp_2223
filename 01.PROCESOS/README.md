@@ -2,7 +2,7 @@
 1. Desarrolla aplicaciones compuestas por varios procesos reconociendo y aplicando principios de programación paralela. 
 
 
-#### CRITERIOS DE EVALUACIÓN:
+### CRITERIOS DE EVALUACIÓN:
 a) Se han reconocido las características de la programación concurrente y sus ámbitos de aplicación.  
 b) Se han identificado las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes.  
 c) Se han analizado las características de los procesos y de su ejecución por el sistema operativo.  
@@ -13,8 +13,7 @@ g) Se han desarrollado aplicaciones que gestionen y utilicen procesos para la ej
 h) Se han depurado y documentado las aplicaciones desarrolladas.
 
 
-#### CONTENIDOS:
-Programación multiproceso:
+### CONTENIDOS:
 - Ejecutables. Procesos. Servicios.
 - Estados de un proceso.
 - Cambios de estado.
@@ -27,18 +26,20 @@ Programación multiproceso:
 - Comunicación entre procesos.
 - Sincronización entre procesos.
 - Mecanismos de comunicación y sincronización.
-Programación de aplicaciones multiproceso.
+- Programación de aplicaciones multiproceso.
 - Documentación.
 - Depuración. 
+#### [VER APUNTES](TEORIA)
 
-## HERRAMIENTAS DE CALIFICACIÓN
+### HERRAMIENTAS DE CALIFICACIÓN
 - **PARTICIPACIÓN EN CLASE**: se revisará el trabajo del alumno mediante la revisión de sus apuntes personales, intervenciones, observación directa, ...
-- **CUESTIONARIO**: 
-- **EJERCICIOS DE CLASE**: El profesor comprobará por observación directa si el alumno ha realizado los ejercicios propuestos en clase.
-- **PRÁCTICAS**: El profesor revisará la entrega de los trabajos realizados por el alumnado en el boletín de EJERCICIOS CORRESPONDIENTES.
+- **CUESTIONARIO**: En el aula virtual.
+- **[EJERCICIOS DE CLASE](EJERCICIOS_DE_CLASE)**: El profesor comprobará por observación directa si el alumno ha realizado los ejercicios propuestos en clase.
+- **[PRÁCTICAS](PRACTICAS)**: El profesor revisará la entrega de los trabajos realizados por el alumnado en el boletín de EJERCICIOS CORRESPONDIENTES.
 
-## CALIFICACIÓN:
-|PARTICIPACIÓN EN CLASE | CUESTIONARIO | EJERCICIOS DE CLASE | PRÁCTICAS |
-|:--:|:--:|:--:|:--:|:--:|
-| 10% | 20% | 20% | 50% |
+### CALIFICACIÓN:
+<table>
+<tr><td>PARTICIPACIÓN EN CLASE </td><td> CUESTIONARIO </td><td> EJERCICIOS DE CLASE </td><td> PRÁCTICAS </td></tr>
+<tr><td>10% </td><td> 20% </td><td> 20% </td><td> 50% </td></tr>
+</table>
 
