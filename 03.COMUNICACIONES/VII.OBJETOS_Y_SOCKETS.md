@@ -122,7 +122,7 @@ Como vemos, el procedimiento es muy parecido a lo visto anteriormente, con la pa
 
 El resultado de ejecutar los programas es el siguiente:
 
-![image-20210203234024695](IMAGENES/IMG_03_17.png)
+![image-20210203234024695](IMG_03_17.png)
 
 ## ENVÍO DE OBJETOS USANDO UDP
 

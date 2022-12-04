@@ -22,21 +22,21 @@
 ### Introducción
 Los  potencia de cálculo de los dispositivos electrónicos domésticos (PCs, tablets, teléfonos móviles , …) la proporciona el procesador.  Es el elemento fundamental, junto con la memoria principal. Cuando se estudia la estructura básica de un edispositivo electrónico, el procesador (también llamado CPU) es un elemento indispensable.
 
-![4c4d6408acc4177086c009b02c49f702.png](_resources/4c4d6408acc4177086c009b02c49f702.png)
+![4c4d6408acc4177086c009b02c49f702.png](4c4d6408acc4177086c009b02c49f702.png)
 
 En la actualidad, se requiere una gran potencia de cálculo para procesar la ingente cantidad de información que disponemos. Podemos obtener mejores resultados y más rápidamente si utilizamos varios procesadores para realizar ese procesamiento y tratamiento de información. Cuando un equipo es capaz de hacer esto,  lo denominamos multiproceso. El uso del multiproceso  requiere de un trabajo extra, pues puede provocar situaciones de error que hay que evitar.
 
 Un sistema **monoprocesador** es el que está formado únicamente por un solo procesador. 
 Un sistema **multiprocesador**, en cambio, está formado por varios procesadores.
 
-![b911c804128ae12680f8638229106fc7.png](_resources/b911c804128ae12680f8638229106fc7.png)
+![b911c804128ae12680f8638229106fc7.png](b911c804128ae12680f8638229106fc7.png)
 Sistema multiprocesador
 
 En la actualidad, los equipos multicore están desplazando a los multiprocesadores pues son mucho más baratos y la eficiencia es ligeramente superior para los equipos multiprocesador, pero no compensa el desembolso extra.
 
 Una implementación todavía más potente son las "granjas de procesamiento" o render farms, donde multitud de equipos trabajan en paralelo para aumentar la potencia de cálculo.
 
-![c85e149539a3482b15a02f9959c8d5d4.png](_resources/c85e149539a3482b15a02f9959c8d5d4.png)
+![c85e149539a3482b15a02f9959c8d5d4.png](c85e149539a3482b15a02f9959c8d5d4.png)
 
 ### Definiciones
 Un **programa** es un conjunto de instrucciones escrita en un lenguaje de programación concreto. Una vez terminado, el programa se debe traducir a un lenguaje que el equipo donde se va a ejecutar entienda.
@@ -50,11 +50,11 @@ Para obtener información sobre los procesos que se ejecutan en un sistema opera
 
 `ps` -  muestra por defecto el proceso actual. Si queremos información del proceso padre, podemos poner el modificador `-f`
 
-![fc8e5be7b2f05fadff7b1c9f86c7a943.png](_resources/fc8e5be7b2f05fadff7b1c9f86c7a943.png)
+![fc8e5be7b2f05fadff7b1c9f86c7a943.png](fc8e5be7b2f05fadff7b1c9f86c7a943.png)
 
 Si queremos ver todos los procesos en ejecución, hay que poner el modificador -A
 
-![b1df052258cd277ca745e0ccd75168d3.png](_resources/b1df052258cd277ca745e0ccd75168d3.png)
+![b1df052258cd277ca745e0ccd75168d3.png](b1df052258cd277ca745e0ccd75168d3.png)
 
 
 Los **servicios** son tareas automatizadas por el sistema operativo que se ejecutan en segundo plano y de manera transparente para el usuario. Los distintos sistemas operativos tienen distintas formas de gestionarlos.
@@ -62,14 +62,14 @@ Los **servicios** son tareas automatizadas por el sistema operativo que se ejecu
 Por ejemplo en windows, podemos comprobar los procesos y servicios en ejecución desde el administrador de tareas:
 
 Para ello, iremos al Administrador de Tareas -> pestaña Procesos
-![90835051083653a3868d4d8bf0153d12.png](_resources/90835051083653a3868d4d8bf0153d12.png)
+![90835051083653a3868d4d8bf0153d12.png](90835051083653a3868d4d8bf0153d12.png)
 
 También se puede mostrar en la línea de comandos mediante la orden `tasklist`, con laque podremos ver además el **PID**, el identificador del proceso.
 
-![f16ac6ed844c8e0b5059193275b72edb.png](_resources/f16ac6ed844c8e0b5059193275b72edb.png)
+![f16ac6ed844c8e0b5059193275b72edb.png](f16ac6ed844c8e0b5059193275b72edb.png)
 
 Otro comando muy interesante es `top`, que muestra en tiempo real los procesos en ejecución, la memoria usada, asi como el estado de cada uno.
-![f48cc15b4ef7270d473f79119a033e6b.png](_resources/f48cc15b4ef7270d473f79119a033e6b.png)
+![f48cc15b4ef7270d473f79119a033e6b.png](f48cc15b4ef7270d473f79119a033e6b.png)
 
 <a name="dos"></a>
 ## Estados de un proceso. 
@@ -78,7 +78,7 @@ Una vez que se ha creado un proceso, éste puede pasar por diversos estados y ca
 
 En la siguiente figura se muestran los diversos estados en los que se puede encontrar un proceso:
 
-![99d3af52a39b22535bed1b7655b25463.png](_resources/99d3af52a39b22535bed1b7655b25463.png)
+![99d3af52a39b22535bed1b7655b25463.png](99d3af52a39b22535bed1b7655b25463.png)
 
 Aquí vemos tres niveles de planificación:
 - Planificador a largo plazo:  Para que un proceso funcione correctamente, debe estar cargado en la memoria principal. El planificador a largo plazo decide qué procesos son admitidos para su ejecución y ser cargados en memoria.
@@ -91,7 +91,7 @@ Para entender mejor el comportamiento de un proceso en un sistema operativo se r
 
 Por ejemplo, el proceso lanzador secuencial de ejemplo puede representarse por el siguiente grafo de transiciones de estado:
 
-![Estados_Linux.jpeg](_resources/Estados_Linux.jpeg)
+![Estados_Linux.jpeg](Estados_Linux.jpeg)
 
 El proceso se ha creado a consecuencia de una llamada `fork()` ejecutada por el shell, entrando en estado **R**, que significa que el proceso está listo para ejecutarse. Cuando tu lanzador ha ejecutado wait() para esperar la terminación de un proceso hijo, pasa a estado **S**, que traduciremos como bloqueado. El lanzador seguirá en este estado hasta que la terminación del hijo produzca la señal SIGCHLD, que hace que el lanzador pueda seguir ejecutándose. Cuando termina, pasa a estado **Z**, de zombie, o finalizado.
 
@@ -303,7 +303,7 @@ Con ésta línea indicaremos que va a esperar a la finalización del proceso hij
 
  La figura siguiente muestra de manera gráfica el funcionamiento del programa anterior:
  
-![a16f083243281c8900af9f7561531209.png](_resources/a16f083243281c8900af9f7561531209.png)
+![a16f083243281c8900af9f7561531209.png](a16f083243281c8900af9f7561531209.png)
 
 El motivo de hacer esto así es que cada proceso pueda saber si es el original (proceso padre) o el nuevo (proceso hijo) y poder hacer así cosas distintas. Si metemos el `fork()` en un `if`, como en la figura, el proceso original sigue por la parte del `else` y el nuevo proceso por el `then`. 
 
@@ -450,7 +450,7 @@ Para crear un FIFO se puede utilizar el comando “mkfifo“
 
 `mkfifo MIFIFO`
 
-![33aec8568caf9b8d7da4a96a124c8b00.png](_resources/33aec8568caf9b8d7da4a96a124c8b00.png)
+![33aec8568caf9b8d7da4a96a124c8b00.png](33aec8568caf9b8d7da4a96a124c8b00.png)
 
 Vemos con con un `ls -la` como se ha creado el fichero FIFO, con tamaño 0;
 
@@ -496,7 +496,7 @@ int main ()
 
 Si compilamos y ejecutamos, veremos en nuestro terminal un resultado similar a este:
 
-![1ce7965646a19747eb29b9d7387b2440.png](_resources/1ce7965646a19747eb29b9d7387b2440.png)
+![1ce7965646a19747eb29b9d7387b2440.png](1ce7965646a19747eb29b9d7387b2440.png)
 
 Donde podemos comprobar que el programa queda bloqueado esperando que alguien vacíe el contenido de nuestra `FIFO`.
 
@@ -538,7 +538,7 @@ int main (void)
 
 Ahora debemos  que abrir una segunda ventanas de terminal y ejecutar este segundo programa:
 
-![cdd37b82526dee97b62b48c3f4284202.png](_resources/cdd37b82526dee97b62b48c3f4284202.png)
+![cdd37b82526dee97b62b48c3f4284202.png](cdd37b82526dee97b62b48c3f4284202.png)
 
 Este programa lee el contenido de FIFO2 y sigue en el bucle infinito esperando a leer su contenido cada vez que alguien escriba algo. Al leer el contenido, libera a `escribefifo.c` y le permite terminar su ejecución.
 

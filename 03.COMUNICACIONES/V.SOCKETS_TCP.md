@@ -10,7 +10,7 @@ El socket del cliente es el que solicita una conexión, y el del servidor queda 
 
 El proceso de comunicación se podría resumir de la siguiente manera:
 
-![PROCESO DE COMUNICACIÓN CON SOCKETS EN JAVA](IMAGENES/IMG_03_05.png)
+![PROCESO DE COMUNICACIÓN CON SOCKETS EN JAVA](IMG_03_05.png)
 
 ### Sockets TPC → Servidor:
 
@@ -91,7 +91,7 @@ public class Server
 } 
 ```
 
-[DESCARGAR CÓDIGO](CODIGO/Server.java)
+[DESCARGAR CÓDIGO](Server.java)
 
 
 ### Sockets TCP → Cliente:
@@ -179,12 +179,12 @@ public class Client
 }
 ```
 
-[DESCARGAR CÓDIGO](CODIGO/Client.java)
+[DESCARGAR CÓDIGO](Client.java)
 
 Si compilamos cada aplicación en un terminal distinto y las ejecutamos al mismo tiempo, podemos ver el resultado:
 
-![APLICACIÓN BÁSICA CON SOCKETS EN JAVA](IMAGENES/IMG_03_08.png)
+![APLICACIÓN BÁSICA CON SOCKETS EN JAVA](IMG_03_08.png)
 
 El funcionamiento de esta aplicación básica, explicada de manera gráfica y relacionándola con las fases del proceso de comunicación explicado anteriormente, quedaría de esta manera:
 
-![APLICACIÓN BÁSICA CON SOCKETS EN JAVA](IMAGENES/IMG_03_06.png)
+![APLICACIÓN BÁSICA CON SOCKETS EN JAVA](IMG_03_06.png)

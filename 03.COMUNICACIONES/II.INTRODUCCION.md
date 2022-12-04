@@ -1,6 +1,6 @@
 # MARCO TEÓRICO
 
-[VOLVER AL ÍNDICE](I.INDICE.md)
+[VOLVER AL ÍNDICE](03.COMUNICACIONES/I.INDICE.md)
 ---
 
 ## Sistema Distribuido
@@ -11,7 +11,7 @@
 
 ## Comunicación entre Aplicaciones
 
-![Comunicación entre aplicaciones](IMAGENES/IMG_03_01.png)
+![Comunicación entre aplicaciones](IMG_03_01.png)
 
 ## Protocolo de comunicaciones:
 - Es el conjunto de reglas que fijan cómo se deben intercambiar paquetes entre los diferentes elementos que se comunican entre sí.
@@ -20,11 +20,11 @@
 - Elemento software: IP, TCP, UDP, HTTP, FTP...
 - Todos estos componentes se organizan en lo que se denomina una jerarquía o pila de protocolos.
 
-![LA PILA DE PROTOCOLOS](IMAGENES/IMG_03_02.png)
+![LA PILA DE PROTOCOLOS](IMG_03_02.png)
 
 ## PROCESO DE COMUNICACIONES
 
-![LA PILA DE PROTOCOLOS](IMAGENES/IMG_03_03.png)
+![LA PILA DE PROTOCOLOS](IMG_03_03.png)
 
 ## Protocolo Orientado a la Conexión: TCP
 Es aquel en que el canal de comunicaciones entre dos aplicaciones permanece abierto durante un cierto tiempo, permitiendo enviar múltiples mensajes de manera fiable por el mismo.

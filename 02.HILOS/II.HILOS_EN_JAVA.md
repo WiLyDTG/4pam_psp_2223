@@ -1,4 +1,4 @@
-[ÍNDICE TEMA 3](I.INDICE.md)
+[ÍNDICE TEMA 3](02.HILOS/I.INDICE.md)
 
 ## I. PROGRAMACIÓN MULTIHILO
 La programación multihilo permite realizar diferentes hilos de ejecución a la vez, es decir, permite realizar diferentes tareas en una aplicación de forma concurrente. La mayoría de lenguajes de programación permiten trabajar con hilos y realizar programación multihilo. También son multihilo la mayoría de las aplicaciones que utilizamos en nuestros ordenadores (editores de texto, navegadores, editores gráficos...), lo que nos da la sensación de mayor agilidad de ejecución.

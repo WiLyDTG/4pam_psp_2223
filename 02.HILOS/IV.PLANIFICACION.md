@@ -124,7 +124,7 @@ public void run() {
 
 El resultado con este código será el siguiente:
 
-![5e9fec3cd8881188e3f096598500d96b.png](IMAGENES/5e9fec3cd8881188e3f096598500d96b.png)
+![5e9fec3cd8881188e3f096598500d96b.png](5e9fec3cd8881188e3f096598500d96b.png)
 
 Este sencillo caso se garantiza la alternancia de los dos procesos sin necesidad de que se cumpla ninguna condición, ya que son solamente dos hilos y esta alternancia de turnos está garantizada.
 
@@ -287,7 +287,7 @@ public class ProducerConsumerExample {
 
 El resultado será el siguiente:
 
-![38cfdb1add2e846da768749d33b3a0e3.png](IMAGENES/38cfdb1add2e846da768749d33b3a0e3.png)
+![38cfdb1add2e846da768749d33b3a0e3.png](38cfdb1add2e846da768749d33b3a0e3.png)
 
 Como vemos, los mecanismos de sincronización garantizan la exclusión mutua en el acceso a los recursos compartidos por varios hilos.
 

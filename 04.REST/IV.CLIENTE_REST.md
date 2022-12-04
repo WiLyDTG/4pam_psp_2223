@@ -6,11 +6,11 @@
 
 En el capítulo anterior, hemos visto cómo implementar nuestro servidor REST. Ahora vamos a desarrollar un cliente sencillo que envíe peticiones REST y procese los datos recibidos.
 
-[DESCARGAR CÓDIGO FUENTE](ARCHIVOS/HttpClient.zip)
+[DESCARGAR CÓDIGO FUENTE](HttpClient.zip)
 
 El procedimiento inicial es el mismo, iremos a [SPRING INIATILZR](https://start.spring.io/) y crearemos nuestro proyecto SPRING. Lo vamos a configurar asi:
 
-![CONFIGURACIÓN](IMAGENES/img_07.png)
+![CONFIGURACIÓN](img_07.png)
 
 No necesitamos añadir dependencias aqui, ya que las añadiremos más tarde a mano en el archivo `pom.xml`. 
 

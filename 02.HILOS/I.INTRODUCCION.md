@@ -1,4 +1,4 @@
-[ÍNDICE TEMA 3](I.INDICE.md)
+[ÍNDICE TEMA 3](02.HILOS/I.INDICE.md)
 
 
 ## DEFINICIÓN 
@@ -35,7 +35,7 @@ Se aconseja utilizar hilos en una aplicación cuando:
 para manejar tareas de tiempo crítico y una prioridad baja para otras tareas.
 - La aplicación se va a ejecutar en un entorno multiprocesador.
 
-![IMAGEN 1: ESTRUCTURA DE HILOS Y PROCESOS](IMAGENES/img_01.png)
+![IMAGEN 1: ESTRUCTURA DE HILOS Y PROCESOS](02.HILOS/IMAGENES/img_01.png)
 
 Hablamos de multihilo cuando se ejecutan varias tareas paralelamente dentro de una misma aplicación. En este caso no son procesos diferentes sino que dichas tareas se ejecutan dentro del mismo proceso del Sistema Operativo. A cada una de estas tareas se le conoce como hilo o thread (en algunos contextos también como procesos ligeros).
 
@@ -57,7 +57,7 @@ E) El hilo termina cuando acaba de ejecutarse el código del mismo o bien se inv
 
 Gráficamente el resultado es el siguiente:
 
-![IMAGEN 2: Estads de un proceso](IMAGENES/img_02.png)
+![IMAGEN 2: Estads de un proceso](02.HILOS/IMAGENES/img_02.png)
 
 ## Relación entre proceso e hilo
 Recuerde que los procesos no comparten memoria entre ellos, son independientes, traen información sobre su estado e interactúan con otros procesos a través de mecanismos de comunicación dados por el sistema. Esta comunicación o el cambio de estado de un proceso son mecanismos costosos por el microprocesador. Por eso se llaman entidades pesadas. Los hilos, en cambio, comparten recursos. El cambio de estado y ejecución se realiza mucho más rápidamente y pueden comunicarse entre ellos utilizando los datos de la memoria que comparten. El tiempo de uso del microprocesador dedicado a la gestión de hilos es bastante despreciable.

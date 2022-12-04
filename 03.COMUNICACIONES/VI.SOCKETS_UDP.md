@@ -22,7 +22,7 @@ Las funcionalidades que ofrece al nivel de aplicación lo asemeja con TCP, pero 
 
 * La longitud máxima de cada paquete es de 64 KB como maximo.
 
-![DATAGRAMA UDP](IMAGENES/IMG_03_09.png)
+![DATAGRAMA UDP](IMG_03_09.png)
 
 Al ser mucho mas ligero y eficiente que TCP, es muy extendido su uso en la programación distribuida.
 
@@ -84,7 +84,7 @@ Los métodos más usados son:
 
 El funcionamiento de las aplicaciones usando UDP se puede mostrar gráficamente usando la siguiente imagen:
 
-![FUNCIONAMIENTO UDP](IMAGENES/IMG_03_10.png)
+![FUNCIONAMIENTO UDP](IMG_03_10.png)
 
 Y su explicación sería de la siguiente manera:
 
@@ -155,7 +155,7 @@ public class UDPServidor {
 }
 ```
 
-[UDPServidor.java](CODIGO/UDPServidor.java)
+[UDPServidor.java](UDPServidor.java)
 
 #### UDPCliente.java:
 
@@ -216,9 +216,9 @@ public class UDPCliente {
 }
 ```
 
-[UDPCliente.java](CODIGO/UDPCliente.java)
+[UDPCliente.java](UDPCliente.java)
 
 
 Para demostrar el funcionamiento de esta metodología vamos a ver un ejemplo básico de comunicación cliente-servidor.
 
-![FUNCIONAMIENTO UDP](IMAGENES/IMG_03_11.png)
+![FUNCIONAMIENTO UDP](IMG_03_11.png)

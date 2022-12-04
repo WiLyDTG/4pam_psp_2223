@@ -1,4 +1,4 @@
-[VOLVER AL ÍNDICE](I.INDICE.md)
+[VOLVER AL ÍNDICE](03.COMUNICACIONES/I.INDICE.md)
 -- 
 
 ## CHAT TCP
@@ -22,9 +22,9 @@ Por otro lado debemos crear la clase que contenga los hilos generados por el ser
 
 Cuando un cliente finaliza (pulsa el botón Salir de su pantalla) envía un asterisco al servidor de chat, entonces se sale del bucle while.
 
-![IMAGENES/ea990fab4203c6b091ba9c2b01f1364d.png](IMAGENES/ea990fab4203c6b091ba9c2b01f1364d.png)
+![ea990fab4203c6b091ba9c2b01f1364d.png](ea990fab4203c6b091ba9c2b01f1364d.png)
 
 Desde aqui puedes descargar el código común de los hilos:
 
-[HilosComun](CODIGO/HilosComun.java)
+[HilosComun](HilosComun.java)
 

@@ -6,7 +6,7 @@
 
 Vamos a crear un servidor REST básico que ofrezca datos en formato JSON recibiendo peticiones Http de un cliente. Nuestro servicio se va a construir sobre una base de Spring, con una serie de dependencias necesarias para la creación.
 
-[DESCARGAR CÓDIGO FUENTE](ARCHIVOS/psp4pam.zip)
+[DESCARGAR CÓDIGO FUENTE](psp4pam.zip)
 
 ## 1. CREANDO LA BASE DE DATOS
 
@@ -38,19 +38,19 @@ Para ello, nos vamos a la web https://start.spring.io/ y configuramos el proyect
 
 1. En primer lugar, configuramos las propiedades estructurales del proyecto:
 
-   ![Configurando el proyecto: La estructura](IMAGENES/img_01.png)
+   ![Configurando el proyecto: La estructura](04.REST/IMAGENES/img_01.png)
 
 Hemos elegido un proyecto MAVEN en Java usando una versión estable de Spring Boot. (En resumen, no hemos tocado nada).
 
 2. A continuación configuramos algunas propiedades del mismo:
 
-   ![Configurando el proyecto: Las propiedades](IMAGENES/img_02.png)
+   ![Configurando el proyecto: Las propiedades](04.REST/IMAGENES/img_02.png)
 
    Aquí hemos cambiado el nombre a nuestro artifact y el nombre del proyecto, así como la descripción del mismo.
 
 3. Añadimos las dependencias necesarias:
 
-   ![Configurando el proyecto: Las dependencias](IMAGENES/img_03.png)
+   ![Configurando el proyecto: Las dependencias](04.REST/IMAGENES/img_03.png)
 
    En nuestro caso necesitamos el acceso a la base de datos a través del driver de MySQL, para persistir los datos en la aplicación usaremos Hibernate y Spring Data, y para ofrecer los servicios WEB (servidor Apache Tomcat, MVC , ...) usaremos las dependencias incluidas en Spring Web. 
 
@@ -322,8 +322,8 @@ Si todo ha ido bien, podemos ejecutarlo y probar su uso con sentencias de curl o
 A continuación mostramos algunos pantallazos de varias pruebas usando ambas formas:
 
 #### CURL
-   ![Ejemplo usando CURL](IMAGENES/img_05.png)
+   ![Ejemplo usando CURL](img_05.png)
    
 #### POSTMAN   
-   ![Ejemplo usando POSTMAN](IMAGENES/img_06.png)
+   ![Ejemplo usando POSTMAN](img_06.png)
 

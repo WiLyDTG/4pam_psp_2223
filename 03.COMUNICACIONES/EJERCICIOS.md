@@ -1,6 +1,6 @@
 # EJERCCIOS
 ## PON EN MAYÚSCULAS
-Basándonos en los archivos [TCPCliente](CODIGO/TCPCliente.java) y [TCPServidor](CODIGO/TCPServidor.java), que envían un mensaje entre cliente y servidor y el ejemplo de los apuntes, crea una aplicación cliente servidor utilizando Sockets en Java utilizando 2 proyectos.
+Basándonos en los archivos [TCPCliente](TCPCliente.java) y [TCPServidor](TCPServidor.java), que envían un mensaje entre cliente y servidor y el ejemplo de los apuntes, crea una aplicación cliente servidor utilizando Sockets en Java utilizando 2 proyectos.
 * **Proyecto EcoServidor**:
     - El servidor escuchará en el puerto 6000.
     - Cuando reciba una conexión, leerá constantemente mensajes del cliente, y se los devolverá convertidos a mayúsculas. 
@@ -30,14 +30,14 @@ Crear dos programas en JAVA (Cliente-Servidor) que usando las clases **DatagramS
 * El programa cliente recibe el datagrama del servidor y muestra el número de repeticiones de la letra 'a'. 
 
 El ejercicio debe mostrar algo parecido a esto:
-![FUNCIONAMIENTO UDP](IMAGENES/IMG_03_12.png)
+![FUNCIONAMIENTO UDP](IMG_03_12.png)
 
 ## ENVÍO DE OBJETOS (TCP)
 
 Crear una aplicación que permita intercambiar objetos llamados **Persona** entre un cliente y un servidor usando sockets **TCP**. En el ejercicio, el programa servidor crea un objeto **Persona**, asignarle valores y enviarlo al programa cliente. Una vez recibido, el programa cliente debe hacer modificaciones en el objeto y devolverlo otra vez al servidor, que mostrará por pantalla los valores modificados.
 
-Como ayuda, el objeto persona se puede descargar desde [aquí](CODIGO/Persona.java), y te puedes servir de los ejemplos de los apuntes del [apartado VII](VII.OBJETOS_Y_SOCKETS.md).
+Como ayuda, el objeto persona se puede descargar desde [aquí](Persona.java), y te puedes servir de los ejemplos de los apuntes del [apartado VII](VII.OBJETOS_Y_SOCKETS.md).
 
 El resultado debe ser parecido a la siguiente imagen:
 
-![EJERCICIO OBJETOS TCP](IMAGENES/IMG_03_16.png)
+![EJERCICIO OBJETOS TCP](IMG_03_16.png)
