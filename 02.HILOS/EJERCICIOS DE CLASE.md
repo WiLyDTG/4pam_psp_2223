@@ -1,15 +1,10 @@
-### EJERCICIO 1
-Un hilo debe generar un número al azar entre cero y cien, que deben intentar adivinar otros diez hilos. Si un hilo acierta el número, debe terminar su ejecución inmediatamente. Y el resto de los hilos deben también terminar su ejecución en cuanto propon gan un número y se les avise de que otro hilo ya ha acertado el número. 
+## TABLAS DE MULTIPLICAR
 
-Se propone utilizar una clase **NumeroOculto** con un método int **propuestaNumero (int num)** que devuelva los siguientes valores: 
+Crea una clase que extienda a Thread y que reciba un número entero como atributo, pasado a su constructor. En su método *run*() debe calcular la tabla de multiplicar de su atributo.
 
-  a) -1 si el juego ya ha terminado porque un hilo ha adivinado el número.  
-  b) 1 si el número propuesto (num) es el número oculto.   
-  c) 0 en otro caso. 
-  
-No hace falta crear una clase para el hilo que genera el número al azar. Es el hilo inicial, que ejecuta el método main, y que crea el resto de los hilos.
+- Desde el programa principal, crea 10 hilos, cada uno con un número distinto y lánzalos a la vez.
 
-### EJERCICIO 2
+## SUPERMERCADO
 
 El código a continuación simula el proceso de cobro de un supermercado, donde unos clientes van con un carro lleno de productos y una máquina de cobro automático (llamada Cajera)  les cobra los productos. La cajera procesa la compra cliente a cliente, es decir que primero procesa al cliente 1, luego al cliente 2 y así sucesivamente. 
 
@@ -93,3 +88,15 @@ public class Main {
 SE PIDE
 - Construir los métodos faltantes de cada clase.
 - Convertir los clientes en hilos que extiendan la clase Thread.
+
+## NÚMEROS AL AZAR
+Un hilo debe generar un número al azar entre cero y cien, que deben intentar adivinar otros diez hilos. Si un hilo acierta el número, debe terminar su ejecución inmediatamente. Y el resto de los hilos deben también terminar su ejecución en cuanto propongan un número y se les avise de que otro hilo ya ha acertado el número. 
+
+Se propone utilizar una clase **NumeroOculto** con un método int **propuestaNumero (int num)** que devuelva los siguientes valores: 
+
+  a) -1 si el juego ya ha terminado porque un hilo ha adivinado el número.  
+  b) 1 si el número propuesto (num) es el número oculto.   
+  c) 0 en otro caso. 
+  
+No hace falta crear una clase para el hilo que genera el número al azar. Es el hilo inicial, que ejecuta el método main, y que crea el resto de los hilos.
+

@@ -37,7 +37,7 @@ Terminé!
 Todos los hilos terminaron.
 ```
 
-## EJERCICIO 3
+## BANCO
 
 Crea una aplicación con las siguientes clases:
 
@@ -45,7 +45,7 @@ Crea una aplicación con las siguientes clases:
 - **Cliente**, clase que extiende **Thread.** Desde el método *run()* hemos de usar el método de la clase *Saldo* que añade la cantidad al saldo. Averigua los parámetros que se necesita en el constructor. No debe visualizar nada en pantalla.
 - **Main**, El programa principal crea un objeto *Saldo* asignándole un valor inicial. Visualiza el saldo inicial. Crea varios hilos que compartan ese objeto *Saldo.* A cada hilo le damos un nombre y le asignamos una cantidad. Lanzamos los hilos y esperamos a que finalicen para visualizar el saldo final del objeto *Saldo.*
 
-## EJERCICIO 4
+## ADIVINA NÚMERO
 
 Se trata de simular el juego para adivinar un número. Se crearán varios hilos, los hilos son los jugadores que tienen que adivinar el número. Habrá un árbitro que generará el número a adivinar, comprobará la jugada del jugador y averiguará a qué jugador le toca jugar. El número tiene que estar comprendido entre 1 y 10, usa la siguiente fórmula para generar el número: 
 
@@ -87,7 +87,7 @@ Jugador2 dice: 3
   Jugador 2 gana, adivino el numero!!!
 ```
 
-## EJERCICIO RULETA
+## RULETA
 
 Se propone simular el juego de la la ruleta francesa. En este juego, hay una ruleta con 37 números (del 0 al 36). En ella nos econtrams a tres clases:
 
@@ -109,17 +109,22 @@ Las normas de la ruleta son las iguientes:
 - Si sale el 0, todo el mundo pierde y la banca se queda con todo el dinero.
 - El juego termina con la Banca a cero o tras 20 jugadas.
 
-### EJERCICIO BLACKJACK
+## BLACKJACK
 
-emular el juego de las 21 con las siguientes caracteristicas:
+emular el juego de las 21 con las siguientes características:
 
 - Habrá un numero de jugadores (hilos) entre 2 y 6.
 - Cada jugador guardara un listado de las cartas jugadas.
 - El Crupier recibirá el objeto jugador, llamara al proceso para sacar carta y se la entregará al jugador. Éste ultimo revisara la jugada comprobara si: ha ganado, se ha pasado, sigue jugando.
 - El juego termina cuando todos los jugadores han ganado o se han pasado.
 
-TABLAS DE MULTIPLICAR
+## PUENTE COMPARTIDO
+Crear una aplicación en JAVA que simule  un sistema que controla el paso de personas por un puente, siempre en la misma dirección, y que debe cumplir las siguientes restricciones:
+- No pueden pasar más de tres personas a la vez.
+- No puede haber más de 200 kg de peso en ningún momento. 
+- Las personas serán programadas como hilos
+- El tiempo entre la llegada de dos personas es aleatorio entre 1 y 30 s, y para atravesar el puente aleatorio, entre 10 y 50 s.
+- Las personas tienen un peso aleatorio de entre 40 y 120 kg.
+- En un objeto de la clase Puente se guarda el estado compartido por todos los hilos: el número de personas que están cruzando el puente y su peso total. Este objeto se pasa a todos los hilos de la clase Persona, en su constructor. Estos lo utilizan como como objeto de bloqueo. En esta clase, y esto es importante, se almacena este objeto en una variable de instancia de tipo `final`. Todos los métodos de esta clase que consultan o modifican su estado son `synchronized`. 
 
-Crea una clase que extienda a Thread y que reciba un número entero como atributo, pasado a su constructor. En su método *run*() debe calcular la tabla de multiplicar de su atributo.
-
-- Desde el programa principal, crea 10 hilos, cada uno con un número distinto y lánzalos a la vez.
+Para simplificar la programación, tiene un método autorizacionPaso que verifica SI se cumplen las condiciones para que una persona entre en el puente y, si es así, actualiza su estado. Se invoca estel método en un bloque sincronizado sobre el propio objeto. El método terminaPaso también se invoca en un bloque sincronizado sobre el propio objeto, y después se llama a notifyAll, para dar la opción de entrar al puente a personas que estén esperando. 

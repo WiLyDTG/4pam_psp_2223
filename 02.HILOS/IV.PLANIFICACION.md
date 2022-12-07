@@ -82,8 +82,8 @@ public class  BloqueoHilos {
     {
       {
         ObjetoCompartido com = new ObjetoCompartido();
-        HiloCadena a = new HiloCadena (com, "J");
-        HiloCadena b = new HiloCadena (com, "K");
+        HiloCadena a = new HiloCadena (com, "A");
+        HiloCadena b = new HiloCadena (com, "B");
         a.start(); 
         b.start();
       } 
@@ -290,14 +290,3 @@ El resultado será el siguiente:
 ![38cfdb1add2e846da768749d33b3a0e3.png](38cfdb1add2e846da768749d33b3a0e3.png)
 
 Como vemos, los mecanismos de sincronización garantizan la exclusión mutua en el acceso a los recursos compartidos por varios hilos.
-
-## EJERCICIO PROPUESTO
-Crear una aplicación en JAVA que simule  un sistema que controla el paso de personas por un puente, siempre en la misma dirección, y que debe cumplir las siguientes restricciones:
-- No pueden pasar más de tres personas a la vez.
-- No puede haber más de 200 kg de peso en ningún momento. 
-- Las personas serán programadas como hilos
-- El tiempo entre la llegada de dos personas es aleatorio entre 1 y 30 s, y para atravesar el puente aleatorio, entre 10 y 50 s.
-- Las personas tienen un peso aleatorio de entre 40 y 120 kg.
-- En un objeto de la clase Puente se guarda el estado compartido por todos los hilos: el número de personas que están cruzando el puente y su peso total. Este objeto se pasa a todos los hilos de la clase Persona, en su constructor. Estos lo utilizan como como objeto de bloqueo. En esta clase, y esto es importante, se almacena este objeto en una variable de instancia de tipo `final`. Todos los métodos de esta clase que consultan o modifican su estado son `synchronized`. 
-
-Para simplificar la programación, tiene un método autorizacionPaso que verifica SI se cumplen las condiciones para que una persona entre en el puente y, si es así, actualiza su estado. Se invoca estel método en un bloque sincronizado sobre el propio objeto. El método terminaPaso también se invoca en un bloque sincronizado sobre el propio objeto, y después se llama a notifyAll, para dar la opción de entrar al puente a personas que estén esperando. 
