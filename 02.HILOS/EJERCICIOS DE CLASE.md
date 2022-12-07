@@ -1,3 +1,5 @@
+## ESTOS EJERCICIOS SE CALIFICAN POR OBSERVACIÓN DIRECTA Y HAY QUE SUBIRLOS A GITHUB
+
 ## TABLAS DE MULTIPLICAR
 
 Crea una clase que extienda a Thread y que reciba un número entero como atributo, pasado a su constructor. En su método *run*() debe calcular la tabla de multiplicar de su atributo.

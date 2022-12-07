@@ -87,27 +87,7 @@ Jugador2 dice: 3
   Jugador 2 gana, adivino el numero!!!
 ```
 
-## RULETA
 
-Se propone simular el juego de la la ruleta francesa. En este juego, hay una ruleta con 37 números (del 0 al 36). En ella nos econtrams a tres clases:
-
-- La clase **Banca** almacena el dinero y gestiona los pagos y cobros. Inicialmente empieza con 20.000€
-- La clase **Crupier**: Gestiona el objeto **Banca** y cada 3 segundos saca un número al azar, recoge las apuestas de los jugadores y cobra o paga según proceda.
-- La clase **Jugador**, que se inicializa con 1.000 € y tiene las siguientes reglas.
-    - El jugador puede hacer dos tipos de jugadas, según un número generado al azar entre 0 y 1.
-    - La jugada 0 es para jugar par o impar.
-    - La jugada 1 es para jugar un numero cualquiera (entre 1 y 36)
-    - El jugador apostará una cantidad aleatoria entre 10 y 50€.
-    - Una vez hecha la jugada, el jugador espera a que el crupier hlance la bola y le procese la apuesta.
-
-Habrá 4 hilos que simulen a cada jugador.
-
-Las normas de la ruleta son las iguientes:
-
-- Si la apuesta es a un número, el jugador gana 30 veces lo apostado.
-- Si la apuesta es par, el jugador gana 3 veces lo apostado.
-- Si sale el 0, todo el mundo pierde y la banca se queda con todo el dinero.
-- El juego termina con la Banca a cero o tras 20 jugadas.
 
 ## BLACKJACK
 
