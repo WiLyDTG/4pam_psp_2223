@@ -108,3 +108,25 @@ Crear una aplicación en JAVA que simule  un sistema que controla el paso de per
 - En un objeto de la clase Puente se guarda el estado compartido por todos los hilos: el número de personas que están cruzando el puente y su peso total. Este objeto se pasa a todos los hilos de la clase Persona, en su constructor. Estos lo utilizan como como objeto de bloqueo. En esta clase, y esto es importante, se almacena este objeto en una variable de instancia de tipo `final`. Todos los métodos de esta clase que consultan o modifican su estado son `synchronized`. 
 
 Para simplificar la programación, tiene un método autorizacionPaso que verifica SI se cumplen las condiciones para que una persona entre en el puente y, si es así, actualiza su estado. Se invoca estel método en un bloque sincronizado sobre el propio objeto. El método terminaPaso también se invoca en un bloque sincronizado sobre el propio objeto, y después se llama a notifyAll, para dar la opción de entrar al puente a personas que estén esperando. 
+
+## (OPCIONAL) RULETA
+
+Se propone simular el juego de la la ruleta francesa. En este juego, hay una ruleta con 37 números (del 0 al 36). En ella nos encontramos a tres clases:
+
+- La clase **Banca** almacena el dinero y gestiona los pagos y cobros. Inicialmente empieza con 20.000€
+- La clase **Crupier**: Gestiona el objeto **Banca** y cada 3 segundos saca un número al azar, recoge las apuestas de los jugadores y cobra o paga según proceda.
+- La clase **Jugador**, que se inicializa con 1.000 € y tiene las siguientes reglas.
+    - El jugador puede hacer dos tipos de jugadas, según un número generado al azar entre 0 y 1.
+    - La jugada 0 es para jugar par o impar.
+    - La jugada 1 es para jugar un numero cualquiera (entre 1 y 36)
+    - El jugador apostará una cantidad aleatoria entre 10 y 50€.
+    - Una vez hecha la jugada, el jugador espera a que el crupier lance la bola y le procese la apuesta.
+
+Habrá 4 hilos que simulen a cada jugador.
+
+Las normas de la ruleta son las siguientes:
+
+- Si la apuesta es a un número, el jugador gana 30 veces lo apostado.
+- Si la apuesta es par, el jugador gana 3 veces lo apostado.
+- Si sale el 0, todo el mundo pierde y la banca se queda con todo el dinero.
+- El juego termina con la Banca a cero o tras 20 jugadas.
