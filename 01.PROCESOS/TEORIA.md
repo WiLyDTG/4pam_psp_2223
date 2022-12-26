@@ -19,8 +19,23 @@
 <a name="uno"></a>
 ## Ejecutables. Procesos. Servicios. 
 
-### Introducción
+### Definiciones
+Un **programa** es un conjunto de instrucciones escrita en un lenguaje de programación concreto. Una vez terminado, el programa se debe traducir a un lenguaje que el equipo donde se va a ejecutar entienda.
+Un programa ejecutable (o **ejecutable** simplemente) contiene un conjunto de instrucciones que se pueden ejecutar directamente en una máquina. Esta puede ser una máquina fisica o, en el caso del lenguaje Java, una máquina virtual . Un programa es un objeto estático , normalmente almacenado en un fichero binario en un medio de almacenamiento secundario, como , por ejemplo , un disco duro. Es, por tanto, un elemento estático. 
+
+En cambio, un **proceso** es dinámico, es una instancia de un programa en ejecución, que realiza los cambios indicados por el programa a los datos iniciales y obtiene una salida concreta. El proceso, además de las instrucciones, requerirá también de recursos específicos para la ejecución como el contador de instrucciones del programa, el contenido de los registros o los datos.
+
+Los **servicios** son tareas automatizadas por el sistema operativo que se ejecutan en segundo plano y de manera transparente para el usuario. Los distintos sistemas operativos tienen distintas formas de gestionarlos.
+
+Los ejecutables son archivos que contienen código ejecutable y pueden ser ejecutados por el sistema operativo. Los procesos son instancias de programas en ejecución, cada uno con su propio espacio de direcciones y recursos asignados por el sistema operativo.
+
+Los servicios son programas que se ejecutan en segundo plano y realizan tareas específicas para el sistema o para otras aplicaciones. A menudo, los servicios son ejecutados como procesos independientes y pueden ser iniciados y detenidos por el sistema operativo o por otras aplicaciones. Algunos ejemplos comunes de servicios son el servicio de impresión, el servicio de correo electrónico y el servicio de bases de datos.
+
+A diferencia de los procesos, los servicios suelen ser ejecutados en segundo plano y no requieren la interacción directa del usuario. Además, a menudo se inician automáticamente al iniciar el sistema operativo y continúan ejecutándose a menos que se detengan explícitamente. Esto los hace útiles para tareas que deben realizarse de manera continua o en intervalos regulares, como la actualización de bases de datos o la comprobación de correo electrónico.
+
+### Procesadores y procesos
 Los  potencia de cálculo de los dispositivos electrónicos domésticos (PCs, tablets, teléfonos móviles , …) la proporciona el procesador.  Es el elemento fundamental, junto con la memoria principal. Cuando se estudia la estructura básica de un edispositivo electrónico, el procesador (también llamado CPU) es un elemento indispensable.
+
 
 ![](_resources/4c4d6408acc4177086c009b02c49f702.png)
 
@@ -32,44 +47,20 @@ Un sistema **multiprocesador**, en cambio, está formado por varios procesadores
 ![](_resources/b911c804128ae12680f8638229106fc7.png)
 Sistema multiprocesador
 
+Un equipo multicore es un ordenador que tiene más de un procesador o núcleo de procesamiento. Los procesadores multicore tienen varios núcleos de procesamiento físicos en un solo chip de silicio, lo que permite al sistema operativo asignar tareas a diferentes núcleos para mejorar el rendimiento.
+
+Una de las principales ventajas de los equipos multicore es que pueden realizar múltiples tareas de manera más rápida y eficiente que los equipos con un solo procesador. Esto se debe a que cada núcleo puede realizar una tarea diferente de manera simultánea, lo que aumenta la eficiencia y reduce el tiempo de espera.
+
+Otra ventaja de los equipos multicore es que son más escalables. Si se necesita más rendimiento, se pueden agregar más núcleos al sistema, en lugar de tener que reemplazar el procesador completo.
+
+Sin embargo, es importante tener en cuenta que no todas las aplicaciones se beneficiarán del uso de múltiples núcleos. Algunas aplicaciones pueden no estar optimizadas para aprovechar el poder de procesamiento adicional de los núcleos adicionales, o pueden requerir una cantidad significativa de comunicación entre los núcleos, lo que puede reducir el rendimiento en lugar de mejorarlo. Además, los equipos multicore pueden ser más costosos que los equipos con un solo procesador.
+
 En la actualidad, los equipos multicore están desplazando a los multiprocesadores pues son mucho más baratos y la eficiencia es ligeramente superior para los equipos multiprocesador, pero no compensa el desembolso extra.
 
 Una implementación todavía más potente son las "granjas de procesamiento" o render farms, donde multitud de equipos trabajan en paralelo para aumentar la potencia de cálculo.
 
 ![](_resources/c85e149539a3482b15a02f9959c8d5d4.png)
 
-### Definiciones
-Un **programa** es un conjunto de instrucciones escrita en un lenguaje de programación concreto. Una vez terminado, el programa se debe traducir a un lenguaje que el equipo donde se va a ejecutar entienda.
-Un programa ejecutable (o **ejecutable** simplemente) contiene un conjunto de instrucciones que se pueden ejecutar directamente en una máquina. Esta puede ser una máquina fisica o, en el caso del lenguaje Java, una máquina virtual . Un programa es un objeto estático , normalmente almacenado en un fichero binario en un medio de almacenamiento secundario, como , por ejemplo , un disco duro. Es, por tanto, un elemento estático. 
-
-En cambio, un **proceso** es dinámico, es una instancia de un programa en ejecución, que realiza los cambios indicados por el programa a los datos iniciales y obtiene una salida concreta. El proceso, además de las instrucciones, requerirá también de recursos específicos para la ejecución como el contador de instrucciones del programa, el contenido de los registros o los datos.
-
-El sistema operativo es el encargado de la gestión de procesos: los crea, los elimina y provee las herramientas necesarias para la comunicación entre ellos. Cuando un proceso se está ejecutando se encuentra completamente en memoria y tiene asignados los recursos que necesita para su ejecución. Un proceso no puede escribir en zonas de memoria asignada a otros procesos ya que la memoria no es compartida.
-
-Para obtener información sobre los procesos que se ejecutan en un sistema operativo, podemos hacer uso de diversas órdenes. En el caso de Linux/UNIX podemos utilizar las siguientes:
-
-`ps` -  muestra por defecto el proceso actual. Si queremos información del proceso padre, podemos poner el modificador `-f`
-
-![](_resources/fc8e5be7b2f05fadff7b1c9f86c7a943.png)
-
-Si queremos ver todos los procesos en ejecución, hay que poner el modificador -A
-
-![](_resources/b1df052258cd277ca745e0ccd75168d3.png)
-
-
-Los **servicios** son tareas automatizadas por el sistema operativo que se ejecutan en segundo plano y de manera transparente para el usuario. Los distintos sistemas operativos tienen distintas formas de gestionarlos.
-
-Por ejemplo en windows, podemos comprobar los procesos y servicios en ejecución desde el administrador de tareas:
-
-Para ello, iremos al Administrador de Tareas -> pestaña Procesos
-![](_resources/90835051083653a3868d4d8bf0153d12.png)
-
-También se puede mostrar en la línea de comandos mediante la orden `tasklist`, con laque podremos ver además el **PID**, el identificador del proceso.
-
-![](_resources/f16ac6ed844c8e0b5059193275b72edb.png)
-
-Otro comando muy interesante es `top`, que muestra en tiempo real los procesos en ejecución, la memoria usada, asi como el estado de cada uno.
-![](_resources/f48cc15b4ef7270d473f79119a033e6b.png)
 
 <a name="dos"></a>
 ## Estados de un proceso. 
@@ -101,6 +92,32 @@ El estado bloqueado es múltiple, ya que son muchas las situaciones de bloqueo: 
 
 <a name="cuatro"></a>
 ## Planificación de procesos por el sistema operativo.
+
+El sistema operativo es el encargado de la gestión de procesos: los crea, los elimina y provee las herramientas necesarias para la comunicación entre ellos. Cuando un proceso se está ejecutando se encuentra completamente en memoria y tiene asignados los recursos que necesita para su ejecución. Un proceso no puede escribir en zonas de memoria asignada a otros procesos ya que la memoria no es compartida.
+
+Para obtener información sobre los procesos que se ejecutan en un sistema operativo, podemos hacer uso de diversas órdenes. En el caso de Linux/UNIX podemos utilizar las siguientes:
+
+`ps` -  muestra por defecto el proceso actual. Si queremos información del proceso padre, podemos poner el modificador `-f`
+
+![](_resources/fc8e5be7b2f05fadff7b1c9f86c7a943.png)
+
+Si queremos ver todos los procesos en ejecución, hay que poner el modificador -A
+
+![](_resources/b1df052258cd277ca745e0ccd75168d3.png)
+
+
+Por ejemplo en windows, podemos comprobar los procesos y servicios en ejecución desde el administrador de tareas:
+
+Para ello, iremos al Administrador de Tareas -> pestaña Procesos
+![](_resources/90835051083653a3868d4d8bf0153d12.png)
+
+También se puede mostrar en la línea de comandos mediante la orden `tasklist`, con laque podremos ver además el **PID**, el identificador del proceso.
+
+![](_resources/f16ac6ed844c8e0b5059193275b72edb.png)
+
+Otro comando muy interesante es `top`, que muestra en tiempo real los procesos en ejecución, la memoria usada, asi como el estado de cada uno.
+![](_resources/f48cc15b4ef7270d473f79119a033e6b.png)
+
 La **contienda** es como se llama a la pugna que hacen los procesos listos para conquistar la CPU. Los sistemas operativos disponen de  distintos modos de realizar la asignación de la contienda. Entre otros:
 
 - **Round-Robin.** Método circular, cada proceso se ejecuta de manera ordenada y en un intervalo de tiempo decidido por el SO.
@@ -114,7 +131,16 @@ Eso sí, al programar no podremos controlar los métodos de ordenación de la co
 <a name="cinco"></a>
 ## Hilos. Concepto y características. Hilos frente a procesos.
 
-<a name="seis"></a>
+Los **hilos** son subprocesos ligeros que se ejecutan dentro de un proceso. Los hilos comparten el mismo espacio de memoria y recursos del proceso principal, lo que significa que pueden acceder a las mismas variables y objetos en memoria.
+
+Una de las principales ventajas de los hilos es que son más rápidos de crear y ejecutar que los procesos, ya que no requieren la creación de una nueva imagen de proceso y la asignación de recursos como memoria y espacio de direcciones. Además, los hilos pueden comunicarse y compartir información más fácilmente que los procesos, ya que comparten el mismo espacio de memoria.
+
+Sin embargo, también hay desventajas en el uso de hilos en lugar de procesos. Una de ellas es que los hilos no tienen un espacio de memoria y recursos separados, lo que significa que si un hilo bloquea o falla, puede afectar el funcionamiento del proceso principal y de otros hilos. Además, la sincronización y el control de acceso a recursos compartidos pueden ser más complicados en un entorno de hilos debido a la falta de aislamiento entre ellos.
+
+En general, los hilos son útiles cuando se necesita realizar tareas en paralelo de manera eficiente y rápida, mientras que los procesos son más adecuados cuando se necesita un mayor aislamiento y separación de recursos.
+
+
+(#seis)
 ## Programación concurrente.
 La programación concurrente es la parte de la programación que se ocupa de crear programas que pueden tener varios procesos/hilos que colaboran para ejecutar un trabajo y aprovechar al máximo el rendimiento de sistemas multinúcleo. En el caso de la programación concurrente un solo ordenador puede ejecutar varias tareas a la vez (lo que supone que tiene 2 o más núcleos).
 
