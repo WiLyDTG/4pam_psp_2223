@@ -76,6 +76,31 @@ public class HiloServidor extends Thread {
 }
 ```
 
+y el servidor:
+
+```java
+package hilos;
+
+import java.io.*;
+import java.net.*;
+
+public class Servidor {
+	public static void main(String args[]) throws IOException  {
+		ServerSocket servidor;		
+		servidor = new ServerSocket(6000);
+		System.out.println("Servidor iniciado...");
+		
+		while (true) {	
+			Socket cliente = new Socket();
+			cliente=servidor.accept();//esperando cliente	
+			HiloServidor hilo = new HiloServidor(cliente);
+			hilo.start();		
+		}
+	}
+}
+```
+
+
 Crear una aplicación que use un objeto compartido que contenga el número a adivinar y con las siguientes características:
 - Cada cliente dispone de cinco intentos.
 - Cuando un cliente lo adivine, los demás dejarán de seguir intentado y finalizarán.
