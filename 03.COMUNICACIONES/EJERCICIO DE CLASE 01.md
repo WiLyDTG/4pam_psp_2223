@@ -104,4 +104,12 @@ public class Servidor {
 Crear una aplicación que use un objeto compartido que contenga el número a adivinar y con las siguientes características:
 - Cada cliente dispone de cinco intentos.
 - Cuando un cliente lo adivine, los demás dejarán de seguir intentado y finalizarán.
-- 
+- Los códigos a enviar entre cliente y servidor han de ser **int** y tener los siguientes valores:
+  - 1 - acertado
+  - 2 - el numero oculto es mayor.
+  - 3 - el numero oculto es menor.
+  - 4 - el numero ya habia sido adivinado.
+  - 5 - has agotado los intentos.
+- El servidor esperara a que se conecten cinco clientes, y a cada uno le otorgará un numero incremental. Habra turnos rotatorios de tal manera que cada cliente quedará a la espera (wait()) mientras no sea su turno. 
+- Cuando sea el turno del cliente, primero se comprobará si alguien ha acertado. Si no, lanzará el múmero.
+-  
